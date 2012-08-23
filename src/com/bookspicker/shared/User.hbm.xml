@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.bookspicker.shared">
+
+    <class name="User" table="users">
+    
+        <id name="id" column="user_id">
+            <generator class="native"/>
+        </id>
+        <property name="fib" not-null="true" />
+        
+        <property name="name" not-null="true" access="field" />
+        <property name="fbEmail" not-null="true" />
+        <property name="mitEmail" />
+        <property name="location" />
+<!--        <list name="offers" cascade="all" lazy="false" >-->
+<!--        	<key column="owner_id" not-null="true" />-->
+<!--        	<list-index column="list_index" />-->
+<!--        	<one-to-many class="LocalOffer"/>-->
+<!--        </list>-->
+        
+    </class>
+
+</hibernate-mapping>

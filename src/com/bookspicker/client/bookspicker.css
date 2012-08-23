@@ -1,0 +1,868 @@
+/***** General *******/
+body,html {
+	background-color: #f7f7f7;
+	height: 100%;
+	margin: 0;
+}
+
+* {
+	font-family: Palatino Linotype, Book Antiqua3, Palatino6, serif
+		!important;
+}
+
+.bpButton {
+	cursor: pointer !important;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.bpButton > * {
+	cursor: pointer !important;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+/****** Seller and Buyer Page ******/
+
+.offerManagementPanel {
+	position:absolute;
+	top: value('bpPanelBorder1.getHeight', 'px');
+	right: value('bpPanelBorder2.getWidth', 'px');
+	bottom: value('bpPanelBorder3.getHeight', 'px');
+	left: value('bpPanelBorder4.getWidth', 'px');
+	overflow: auto;
+	padding: 20px;
+	font-size: 11pt;
+}
+
+.offerManagementTable {
+	/*border-collapse: collapse;*/
+	font-weight: bold;
+	text-align: left;
+	margin: 10px 0;
+	width: 100%;
+	border: 1px dotted #DDD;
+}
+
+.offerManagementTable td {
+	padding: 2px 7px;
+	font-size: 9pt;
+}
+
+.greetingLabel{
+	width: 100%;
+	text-align: left;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.sellerPageWrapper {
+	margin: 15px 5%;
+}
+
+.sellPageLoginStuffContainer{
+	position:absolute;
+	top: value('bpPanelBorder1.getHeight', 'px');
+	right: value('bpPanelBorder2.getWidth', 'px');
+	bottom: value('bpPanelBorder3.getHeight', 'px');
+	left: value('bpPanelBorder4.getWidth', 'px');
+	overflow: auto;
+	padding: 20px;
+	font-size: 11pt;
+	text-align: center;
+}
+
+.sellPageLoginButtonWrapper{
+	text-align: center;
+	margin: 10px 0 20px;
+}
+
+.editOfferView {
+	margin: 15px 5%;
+}
+
+.editOfferViewContent {
+	overflow: auto;
+	position: absolute;
+	top: value('bpPanelBorder1.getHeight', 'px');
+	right: value('bpPanelBorder2.getWidth', 'px');
+	bottom: value('bpPanelBorder3.getHeight', 'px');
+	left: value('bpPanelBorder4.getWidth', 'px');
+}
+
+.editOfferBookPanel{
+	border: 2px solid #DDD;
+	border-top: none;
+	padding: 2%;
+	float: right;
+	margin: 0px 2%;
+	width: 30%;
+}
+
+.editOfferPriceContainer{
+	border-left:1px dotted #DDD;
+	margin:5px 0 0;
+	padding:0 10px;
+}
+
+.editOfferDetailsPanel{
+	float: left;
+	overflow: auto;
+	width: 60%;
+}
+
+.editOfferDetailsTable {
+	margin: 1%;
+	width: 98%;
+	overflow-x:auto;
+}
+
+
+.orText{
+	color: #BBB;
+	font-size: 18pt;
+	text-align: center;
+	margin: 5px;
+}
+
+.editOfferError{
+	color: red;
+	padding: 0 1%;
+}
+	
+.editOfferDetailsTable>tbody>tr>td{
+	border-bottom: 2px dotted #DDD;
+	padding: 15px 5px;
+	vertical-align: top;
+}
+
+.autoPricingOptionPanel>table{
+	border: 2px dotted #DDD;
+	width: 100%;
+	padding: 5px;
+}
+
+.fixedPricingOptionPanel{
+	padding: 10px;
+	border: 2px dotted #DDD;
+}
+
+.strategyDescriptionCell > div{
+	margin: 5px 0;
+	padding: 5px;
+	border-top: 1px dotted #DDD;
+}
+
+.commentsInput{
+	width: 33em;
+	height: 3em;
+	font-size: 9pt;
+}
+
+.buyOfferViewContent {
+	overflow: auto;
+	position: absolute;
+	top: value('bpPanelBorder1.getHeight', 'px');
+	right: value('bpPanelBorder2.getWidth', 'px');
+	bottom: value('bpPanelBorder3.getHeight', 'px');
+	left: value('bpPanelBorder4.getWidth', 'px');
+}
+
+.buyOfferDetailsPanel {
+	float: left;
+	overflow: auto;
+	width: 60%;
+}
+
+.buyOfferBookDetailsPanel {
+	border: 2px solid #DDD;
+	border-top: none;
+	float: right;
+	margin: 0px 2%;
+	width: 30%;
+}
+
+.bookDetailedView {
+	padding: 20px;
+}
+
+.buyOfferViewHeading {
+	border-bottom:#DDD dotted 4px;
+	font-size:medium;
+	margin:0 10px;
+	padding:10px 5px;
+	font-weight: bold;
+}
+
+.buyofferTextAndButtonTable {
+	margin: 0 1%;
+}
+
+.mustLoginLabel{
+	font-style:italic;
+	font-weight: bold;
+	text-align: center;
+	font-size: 12pt;
+	color: darkRed;
+}
+
+.buyPageWrapper {
+	margin: 15px 5%;
+}
+
+/****** Information Pages ******/
+.informationPageContent {
+	margin: 15px 5%;
+}
+
+#body-text {
+	font-size: 11pt;
+	text-align: left;
+	margin: 5px 0 0;	
+	padding: 5px 2%;
+	overflow: auto;
+	position: absolute;
+	top: value('bpPanelBorder1.getHeight', 'px');
+	right: value('bpPanelBorder2.getWidth', 'px');
+	bottom: value('bpPanelBorder3.getHeight', 'px');
+	left: value('bpPanelBorder4.getWidth', 'px');
+}
+
+#home-body-text {
+	margin: 75px 1% 0;
+	border-top: 4px solid #DDD;
+	padding: 5px 4%;
+	overflow: auto;
+	position: absolute;
+	top: value('bpPanelBorder1.getHeight', 'px');
+	right: value('bpPanelBorder2.getWidth', 'px');
+	bottom: value('bpPanelBorder3.getHeight', 'px');
+	left: value('bpPanelBorder4.getWidth', 'px');
+}
+
+.homeSearchBoxWrapper{
+	position: absolute;
+	top: value('bpPanelBorder1.getHeight', 'px');
+	right: value('bpPanelBorder2.getWidth', 'px');
+	left: value('bpPanelBorder4.getWidth', 'px');
+	margin:0 1%;
+	height: 75px;
+	border-bottom:4px solid #DDD;
+}
+
+.selectSchoolSearchBox{
+	margin: 0 auto;
+}
+
+/****** BPPanel ******/
+.title {
+	font-weight: bold;
+	font-size: 1.2em;
+	color: #DDD;
+	padding: 5px;
+}
+
+.bpPanel {
+	background-color: #FFF;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border-top: 10px solid #ffed73;
+	border-bottom: 10px solid #ffed73;
+	-webkit-box-shadow: 1px 1px 5px #666;
+	-moz-box-shadow: 1px 1px 5px #666;
+	box-shadow: 1px 1px 5px #666;
+	padding: value('bpPanelBorder1.getHeight', 'px')
+		value('bpPanelBorder2.getWidth', 'px')
+		value('bpPanelBorder3.getHeight', 'px')
+		value('bpPanelBorder4.getWidth', 'px');
+}
+
+.bpPanelTitle {
+	position: absolute;
+	left: 15px;
+	right: 15px;
+	top: 0;
+	background-color: #EFEFEF;
+	padding: 7px 15px 8px;
+	text-align: left;
+	color: #666;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.bpPanelContent {
+	vertical-align: top;
+}
+
+/*
+@sprite .bpPanelTopBorder {
+	gwt-image: 'bpPanelBorder1';
+}
+
+@sprite .bpPanelBottomBorder {
+	gwt-image: 'bpPanelBorder3';
+}
+
+@sprite .bpPanelLeftBorder {
+	gwt-image: 'bpPanelBorder4';
+	height: 100%;
+}
+
+@sprite .bpPanelRightBorder {
+	gwt-image: 'bpPanelBorder2';
+	height: 100%;
+}
+*/
+@sprite .bpPanelTopLeftBorder {
+	gwt-image: 'bpPanelCorner1';
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+@sprite .bpPanelTopBorder {
+	gwt-image: 'bpPanelBorder1';
+	position: absolute;
+	top: 0;
+	left: value('bpPanelCorner1.getWidth', 'px');
+	right: value('bpPanelCorner2.getWidth', 'px');
+}
+
+@sprite .bpPanelTopRightBorder {
+	gwt-image: 'bpPanelCorner2';
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+@sprite .bpPanelBottomLeftBorder {
+	gwt-image: 'bpPanelCorner4';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+@sprite .bpPanelBottomBorder {
+	gwt-image: 'bpPanelBorder3';
+	position: absolute;
+	bottom: 0;
+	left: value('bpPanelCorner4.getWidth', 'px');
+	right: value('bpPanelCorner3.getWidth', 'px');
+}
+
+@sprite .bpPanelBottomRightBorder {
+	gwt-image: 'bpPanelCorner3';
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+@sprite .bpPanelLeftBorder {
+	gwt-image: 'bpPanelBorder4';
+	position: absolute;
+	top: value('bpPanelCorner1.getHeight', 'px');;
+	left: 0;
+	bottom: value('bpPanelCorner4.getHeight', 'px');
+}
+
+@sprite .bpPanelRightBorder {
+	gwt-image: 'bpPanelBorder2';
+	position: absolute;
+	top: value('bpPanelCorner2.getHeight', 'px');;
+	right: 0;
+	bottom: value('bpPanelCorner3.getHeight', 'px');
+}
+
+/********* BundleView *********/
+.bundleView {
+	margin: 15px 5px 5px 10px;
+}
+
+.bundleView>div {
+	bottom: 15%;
+}
+
+.removeButton {
+	
+}
+
+.bundleBookImage {
+	width: 50px;
+	height: auto;
+	padding-right: 3px;
+	max-height: 75px;
+}
+
+.bundleBookDetails * {
+	font-weight: bold;
+	color: #555555;
+	font-size: 9pt;
+}
+
+.bundleBookTitle {
+	font-style: italic;
+	font-size: 10pt;
+	color: #000001;
+}
+
+.emptyBundleLabel {
+	font-size: 10pt;
+	padding: 10px;
+	margin: -5px 5px;
+	border-color:#DDD;
+	border-style:none dotted dotted;
+	border-width:0 2px 2px;
+	
+}
+
+.bundleBooksList {
+	margin: 75px 1% 0;
+	border-top: 4px solid #DDD;
+	padding: 5px 2%;
+	overflow: auto;
+	position: absolute;
+	top: value('bpPanelBorder1.getHeight', 'px');
+	right: value('bpPanelBorder2.getWidth', 'px');
+	bottom: value('bpPanelBorder3.getHeight', 'px');
+	left: value('bpPanelBorder4.getWidth', 'px');
+}
+
+.bundleBooksList>table {
+	border-bottom: 2px dotted #DDD;
+	padding: 5px 0;
+}
+
+.mainBundleButtonWrapper {
+	position: absolute;
+	top: value('bpPanelBorder1.getHeight', 'px');
+	right: value('bpPanelBorder2.getWidth', 'px');
+	left: value('bpPanelBorder4.getWidth', 'px');
+	height: 75px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.mainBundleButton {
+	display: inline-block;
+	margin: 15px auto;
+	vertical-align: middle;
+}
+
+/********* CentralViewWrapper *********/
+	/** TODO This is only used for BundleView and ResultsView... consider changing name.*/
+.centralViewWrapper {
+	margin: 15px 20px 20px;
+}
+
+/********* BestBundleView *********/
+.bestBundleView {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.savingsLabel {
+	font-size: 19pt;
+}
+
+.totalCostLabel {
+	font-size: 19pt;
+}
+
+.description {
+	font-size: 12pt;
+	color: #333333;
+	font-weight: bold;
+}
+
+.bestBundleHeaderDiv{
+
+}
+
+.buyAllOffersButton{
+	display: inline-block;	
+}	
+
+.priceSummaryGrid {
+	padding: 0 1.5%;
+	width: 100%;
+	height: 75px;
+}
+
+.offersList {
+	border-top: 4px solid #DDD;
+	margin: 75px 1% 0;
+	overflow: auto;
+	position: absolute;
+	top: value('bpPanelBorder1.getHeight', 'px');
+	right: value('bpPanelBorder2.getWidth', 'px');
+	bottom: value('bpPanelBorder3.getHeight', 'px');
+	left: value('bpPanelBorder4.getWidth', 'px');
+}
+
+.bookOfferView {
+	border-bottom: 2px dotted #DDD;
+	margin: 0 3%;
+	padding: 20px;
+}
+
+.offerViewBookDetail {
+	font-weight: bold;
+	color: #555555;
+	font-size: 10pt;
+}
+
+.offerViewBookDetailImage {
+	max-width: 40px !important;
+	padding: 5px;
+	max-height: 60px !important;
+}
+
+.offersTable {
+	border-collapse: collapse;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 5px;
+	width: 100%;
+}
+
+.offersTable td {
+	padding: 2px 7px;
+	font-size: 10pt;
+}
+
+.offerTableWrapper {
+	overflow: hidden;
+}
+
+.offerStore {
+	text-align: left;
+}
+
+.selectedOfferRow {
+	border: 2px dotted #DDD;
+}
+
+.selectedOfferPrice {
+	font-size: 18pt !important;
+	font-weight: normal;
+	background-color: #EEE;
+}
+
+
+.selectedLabel {
+	font-weight: bold;
+	font-size: 11pt;
+	color: grey;
+}
+
+.offerButtonPanel>* {
+	vertical-align: center;
+}
+
+.headerRow {
+	width: 100%;
+}
+
+.headerRow td {
+	font-size: 11pt;
+	font-weight: bold;
+	color: black;
+	text-decoration: underline;
+}
+
+.offerRow {
+	width: 100%;
+}
+
+.collapseToggleButton {
+	border:6px double #DDD;
+	color: black;
+	font-size: 9pt;
+	font-weight: bold;
+	width: 100%;
+	cursor: pointer;
+}
+
+.collapseToggleButton div {
+	padding: 3px 5px;
+}
+
+.loadingPanel {
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+	font-weight: bold;
+	font-size: 10pt;
+}
+
+.loadingIcon {
+	vertical-align: middle;
+	padding: 1px;
+}
+
+.loadingIconHidden {
+	visibility: hidden;
+}
+
+/********* ResultsView ********/
+.resultsView {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.pickButton {
+	padding-right: 20px;
+}
+
+.resultsView>table {
+	height: 100%;
+}
+
+.resultsBookDetails * {
+	font-weight: bold;
+	color: #555555;
+	font-size: 9pt;
+}
+
+.resultsBookTitle {
+	font-style: italic;
+	font-size: 11pt;
+	color: #000001;
+}
+
+.resultsBookViewNote{
+	border-top:1px dotted black;
+	color:DarkRed;
+	font-weight:normal;
+	margin:10px 0;
+}
+
+.searchBox {
+	margin: 2% auto;
+}
+
+.suggestionBox {
+	color: grey;
+	font: 11pt;
+}
+
+.searchBoxWrapper {
+	position: absolute;
+	top: value('bpPanelBorder1.getHeight', 'px');
+	right: value('bpPanelBorder2.getWidth', 'px');
+	left: value('bpPanelBorder4.getWidth', 'px');
+	height: 75px;
+}
+
+.resultsList {
+	margin: 75px 1% 0;
+	border-top: 4px solid #DDD;
+	padding: 0px 4%;
+	overflow: auto;
+	position: absolute;
+	top: value('bpPanelBorder1.getHeight', 'px');
+	right: value('bpPanelBorder2.getWidth', 'px');
+	bottom: value('bpPanelBorder3.getHeight', 'px');
+	left: value('bpPanelBorder4.getWidth', 'px');
+}
+
+.resultsList>table {
+	border-bottom: 2px dotted #DDD;
+	padding: 10px;
+}
+
+
+.resultsInfoMessage{
+	margin: 10px -10px;
+	padding: 5px 10px;
+	border-color:#DDD;
+	border-style:solid;
+	border-width:2px;
+}
+
+.resultsErrorMessage {
+	margin: 10px -10px;
+	padding: 5px 10px;
+	border-color:#DDD;
+	border-style:solid;
+	border-width:2px;
+	color: darkRed;
+}
+
+.resultsBookImage {
+	width: 100px;
+	padding-right: 7px;
+	max-height: 175px;
+}
+
+
+/********* Header and Navigation *****/
+.headerView {
+	position: absolute !important;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.logo {
+	margin: 15px 5px 5px 20px;
+	cursor: pointer;
+}
+
+.logoutButton{
+	font-weight: bold;
+	padding-right: 5px;
+}
+
+.topBarContainer {
+	z-index:2;
+	height: 21px;
+	position: fixed !important;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 21px;
+	overflow: visible;
+	padding: 5px;
+}
+
+.loginButtonContainer{
+	float: right;
+}
+
+.navigation {
+	height: value('navHomeImg.getHeight', 'px');
+}
+
+@sprite .navHome {
+	gwt-image: 'navHomeImg';
+	width: value('navHomeImg.getWidth', 'px');
+	height: value('navHomeImg.getHeight', 'px');
+}
+
+@sprite .navSearch {
+	gwt-image: 'navSearchImg';
+	width: value('navSearchImg.getWidth', 'px');
+	height: value('navSearchImg.getHeight', 'px');
+}
+
+@sprite .navSell {
+	gwt-image: 'navSellImg';
+	width: value('navSellImg.getWidth', 'px');
+	height: value('navSellImg.getHeight', 'px');
+}
+
+@sprite .navFaq {
+	gwt-image: 'navFaqImg';
+	width: value('navFaqImg.getWidth', 'px');
+	height: value('navFaqImg.getHeight', 'px');
+}
+
+@sprite .navAbout {
+	gwt-image: 'navAboutImg';
+	width: value('navAboutImg.getWidth', 'px');
+	height: value('navAboutImg.getHeight', 'px');
+}
+
+@sprite .navHomeSelected,.navHome:hover {
+	gwt-image: 'navHomeOverImg';
+}
+
+@sprite .navSearchSelected,.navSearch:hover {
+	gwt-image: 'navSearchOverImg';
+}
+
+@sprite .navSellSelected,.navSell:hover {
+	gwt-image: 'navSellOverImg';
+}
+
+@sprite .navFaqSelected,.navFaq:hover {
+	gwt-image: 'navFaqOverImg';
+}
+
+@sprite .navAboutSelected,.navAbout:hover {
+	gwt-image: 'navAboutOverImg';
+}
+
+
+/** Styles for auto-complete stuff **/
+/* See http://development.lombardi.com/?p=32 for more info */
+
+/* Declare styles external so Resource importer doesn't fail */
+
+@external gwt-SuggestBoxPopup, item, item-selected;
+@external suggestPopupTopLeft, suggestPopupTopLeftInner;
+@external suggestPopupTopCenter;
+@external suggestPopupTopRight, suggestPopupTopRightInner;
+@external suggestPopupMiddleLeft, suggestPopupMiddleRight;
+@external suggestPopupBottomLeft, suggestPopupBottomLeftInner;
+@external suggestPopupBottomCenter;
+@external suggestPopupBottomLeft, suggestPopupBottomLeftInner;
+@external suggestPopupBottomRight, suggestPopupBottomRightInner;
+
+
+.gwt-SuggestBoxPopup {
+    width: 25em;
+    border: 2px #EEE solid;
+    background: white;
+}
+.gwt-SuggestBoxPopup .item {
+    width: 25em;
+}
+.gwt-SuggestBoxPopup .item-selected {
+    background-color: #DDD;
+}
+.gwt-SuggestBoxPopup .suggestPopupTopLeft {
+	background: 0px;
+}
+.gwt-SuggestBoxPopup .suggestPopupTopLeftInner {
+	height: 0px; width: 0px;
+}
+.gwt-SuggestBoxPopup .suggestPopupTopCenter {
+	background: 0px;
+}
+.gwt-SuggestBoxPopup .suggestPopupTopRight {
+	background: 0px;
+}
+.gwt-SuggestBoxPopup .suggestPopupTopRightInner {
+	height: 0px; width: 0px;
+}
+.gwt-SuggestBoxPopup .suggestPopupMiddleLeft {
+	background: 0px;
+}
+.gwt-SuggestBoxPopup .suggestPopupMiddleRight {
+	background: 0px;
+}
+.gwt-SuggestBoxPopup .suggestPopupBottomLeft {
+	background: 0px;
+}
+.gwt-SuggestBoxPopup .suggestPopupBottomLeftInner {
+	height: 0px; width: 0px;
+}
+.gwt-SuggestBoxPopup .suggestPopupBottomCenter {
+	background: 0px;
+}
+.gwt-SuggestBoxPopup .suggestPopupBottomRight {
+	background: 0px;
+}
+.gwt-SuggestBoxPopup .suggestPopupBottomRightInner {
+	height: 0px; width: 0px;
+}
+
+/* Styles for help popup panel */
+@external gwt-PopupPanel;
+.gwt-PopupPanel {
+	background: none repeat scroll 0 0 white;
+	border: 3px solid #DDD;
+	padding: 10px;
+}

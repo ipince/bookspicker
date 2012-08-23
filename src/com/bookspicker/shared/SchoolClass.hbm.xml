@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.bookspicker.shared">
+
+	<class name="SchoolClass" table="classes">
+
+		<id name="id" column="class_id">
+			<generator class="native" />
+		</id>
+		
+		<property name="school" not-null="true" />
+		
+		<property name="course" not-null="true" />
+		<property name="clas" not-null="true" />
+		<property name="section" not-null="true" />
+		<property name="code" not-null="true" />
+		
+		<property name="title" />
+		<property name="term" not-null="true" />
+		<property name="jointSubjects" />
+		<property name="lastActivityDate" />
+		<property name="warehouseLoadDate" />
+		
+		<bag name="books" cascade="all" lazy="false" >
+			<key column="class_id" not-null="true"/>
+			<one-to-many class="ClassBook" />
+		</bag>
+
+	</class>
+	
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui' xmlns:my='urn:import:com.bookspicker.client.view'>
+
+	<ui:with field='res' type='com.bookspicker.client.view.Resources' />
+
+	<g:DockLayoutPanel ui:field="headerPanel" unit='PX'>
+		<g:north size="10">
+			<g:FlowPanel ui:field="topBarContainer">
+				<g:SimplePanel>
+					<g:HTML>
+						<iframe
+							src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fapps%2Fapplication.php%3Fid%3D100580116660807&amp;layout=button_count&amp;show_faces=false&amp;width=40&amp;action=like&amp;font=lucida+grande&amp;colorscheme=light&amp;height=21"
+							scrolling="no" frameborder="0"
+							style="float:left; border:none; overflow:hidden; width:100px; height:21px;"
+							allowTransparency="true"></iframe>
+					</g:HTML>
+				</g:SimplePanel>
+				<g:SimplePanel ui:field="loginContainer"></g:SimplePanel>
+<!-- 				<g:SimplePanel ui:field="changeSchoolContainer"></g:SimplePanel> -->
+				
+			</g:FlowPanel>
+		</g:north>
+		<g:west size="300">
+			<g:Image ui:field="logo" resource='{res.logo}' />
+		</g:west>
+		<g:east size="400">
+			<my:Navigation ui:field="nav"></my:Navigation>
+		</g:east>
+	</g:DockLayoutPanel>
+</ui:UiBinder>

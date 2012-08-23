@@ -1,0 +1,94 @@
+<mockup version="1.0" skin="sketch" measuredW="1002" measuredH="630" mockupW="992" mockupH="620">
+  <controls>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="0" y="0" w="992" h="620" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties>
+        <text>BooksPicker%0Ahttp%3A//www.bookspicker.com/%23search</text>
+        <verticalScrollbar>false</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Image" x="76" y="102" w="205" h="80" measuredW="236" measuredH="90" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <filter>true</filter>
+        <href>bp-home%26bm%3Bbp-home.bmml%26bm%3Bbp-home.bmml%26bm%3Bbp-home.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2276%2C102%2C281%2C182%22%20href%3D%22bp-home.bmml%22%20alt%3D%22bp-home%22%20id%3D%224%22/%3E</map>
+        <src>../eclipse-workspaces/workspace-web/BooksPicker%25202.0/src/com/bookspicker/client/images/logo.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::TitleWindow" x="56" y="187" w="880" h="398" measuredW="450" measuredH="400" zOrder="2" locked="true" isInGroup="-1">
+      <controlProperties>
+        <bottomheight>0</bottomheight>
+        <close>false</close>
+        <dragger>false</dragger>
+        <maximizeRestore>false</maximizeRestore>
+        <minimize>false</minimize>
+        <text>BooksPicker</text>
+        <topheight>26</topheight>
+        <value>0</value>
+        <verticalScrollbar>false</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::Paragraph" x="433" y="349" w="126" h="25" measuredW="200" measuredH="140" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>TODO</text>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::IconLabel" x="859" y="80" w="-1" h="-1" measuredW="121" measuredH="20" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <href>bp-search-loggedin%26bm%3Bbp-search-loggedin.bmml%26bm%3Bbp-search-loggedin.bmml%26bm%3Bbp-search-loggedin.bmml</href>
+        <icon>FacebookIcon%7Cxsmall</icon>
+        <labelPosition>right</labelPosition>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22859%2C80%2C980%2C100%22%20href%3D%22bp-search-loggedin.bmml%22%20alt%3D%22bp-search-loggedin%22%20id%3D%2226%22/%3E</map>
+        <size>10</size>
+        <text>Login%20with%20Facebook</text>
+        <underline>false</underline>
+      </controlProperties>
+    </control>
+    <control controlID="38" controlTypeID="__group__" x="629" y="102" w="-1" h="-1" measuredW="292" measuredH="80" zOrder="4" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Image" x="0" y="1" w="48" h="78" measuredW="55" measuredH="95" zOrder="0" locked="false" isInGroup="38">
+          <controlProperties>
+            <filter>true</filter>
+            <href>bp-home%26bm%3Bbp-home.bmml%26bm%3Bbp-home.bmml%26bm%3Bbp-home.bmml</href>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22629%2C103%2C677%2C181%22%20href%3D%22bp-home.bmml%22%20alt%3D%22bp-home%22%20id%3D%220%22/%3E</map>
+            <src>../eclipse-workspaces/workspace-web/BooksPicker%25202.0/src/com/bookspicker/client/images/nav_home.gif</src>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Image" x="48" y="1" w="61" h="78" measuredW="69" measuredH="95" zOrder="1" locked="false" isInGroup="38">
+          <controlProperties>
+            <filter>true</filter>
+            <href>bp-search-loggedout%26bm%3Bbp-search-loggedout.bmml%26bm%3Bbp-search-loggedout.bmml%26bm%3Bbp-search-loggedout.bmml</href>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22677%2C103%2C738%2C181%22%20href%3D%22bp-search-loggedout.bmml%22%20alt%3D%22bp-search-loggedout%22%20id%3D%221%22/%3E</map>
+            <src>../eclipse-workspaces/workspace-web/BooksPicker%25202.0/src/com/bookspicker/client/images/nav_search_over.gif</src>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Image" x="170" y="1" w="54" h="78" measuredW="61" measuredH="95" zOrder="2" locked="false" isInGroup="38">
+          <controlProperties>
+            <filter>true</filter>
+            <src>../eclipse-workspaces/workspace-web/BooksPicker%25202.0/src/com/bookspicker/client/images/nav_faq.gif</src>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::Image" x="224" y="2" w="68" h="78" measuredW="77" measuredH="95" zOrder="3" locked="false" isInGroup="38">
+          <controlProperties>
+            <filter>true</filter>
+            <src>../eclipse-workspaces/workspace-web/BooksPicker%25202.0/src/com/bookspicker/client/images/nav_about.gif</src>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::Image" x="109" y="0" w="61" h="80" measuredW="83" measuredH="88" zOrder="4" locked="false" isInGroup="38">
+          <controlProperties>
+            <filter>true</filter>
+            <href>bp-sell-loggedout%26bm%3Bbp-sell-loggedout.bmml%26bm%3Bbp-sell-loggedout.bmml%26bm%3Bbp-sell-loggedout.bmml</href>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22738%2C102%2C799%2C182%22%20href%3D%22bp-sell-loggedout.bmml%22%20alt%3D%22bp-sell-loggedout%22%20id%3D%224%22/%3E</map>
+            <src>../eclipse-workspaces/workspace-web/BooksPicker%25202.0/src/com/bookspicker/client/images/nav_sell_test.png</src>
+            <text/>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>

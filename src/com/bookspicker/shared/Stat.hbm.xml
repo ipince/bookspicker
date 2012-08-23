@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.bookspicker.shared">
+
+    <class name="Stat" table="usage_stats">
+    
+        <id name="id" column="stat_id" access="field" >
+            <generator class="native"/>
+        </id>
+        
+        <property name="type" not-null="true" access="field" />
+        
+        <property name="search" access="field" />
+        <property name="isbn" access="field" />
+        <property name="store" access="field" />
+        <property name="price" access="field" />
+        <property name="bookCondition" access="field" />
+        <property name="localId" access="field" />
+        
+        <property name="uid" access="field" />
+        <property name="ip" not-null="true" access="field" />
+        <property name="date" not-null="true" access="field" />
+        
+    </class>
+
+</hibernate-mapping>

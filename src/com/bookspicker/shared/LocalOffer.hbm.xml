@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.bookspicker.shared">
+
+    <class name="LocalOffer" table="local_offers">
+    
+        <id name="id" column="offer_id">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="owner" column="owner_id" 
+     		not-null="true" lazy="false" />
+     	<many-to-one name="book" column="book_id"
+     		not-null="true" lazy="false" />
+     	<property name="school" not-null="true" />
+        <property name="classCode" />
+        <property name="bookCondition" not-null="true" />
+        <property name="location" />
+        <property name="fixedPrice" /> <!-- null iff autoPricing=true -->
+        <property name="autoPricing" not-null="true" />
+        <property name="strategy" access="field" /> <!-- Required if autoPricing=true -->
+        <property name="lowerBoundPrice" />
+        <property name="comments" />
+        
+		<!-- These meta-data fields have only field access because
+			 we don't want to allow other parts of the system to
+			 change them with setter methods -->
+        <property name="creationDate" access="field" not-null="true" />
+        <property name="active" access="field" not-null="true" />
+        <property name="lastPostingDate" access="field" not-null="true" />
+        
+        <property name="sold" access="field" not-null="true" />
+        <property name="soldOnce" access="field" not-null="true" />
+        <property name="buyerId" access="field" />
+        <property name="buyerEmail" access="field" />
+        <property name="sellingPrice" access="field" />
+        <property name="timeSold" access="field" />
+        
+        <property name="timeOnMarketFixed" access="field" not-null="true" />
+        <property name="timeOnMarketAggressive" access="field" not-null="true" />
+        <property name="timeOnMarketConservative" access="field" not-null="true" />
+        <property name="numTimesShown" access="field" not-null="true" />
+        <property name="numTimesNotShown" access="field" not-null="true" />
+        <property name="deleted" access="field" not-null="true" />
+        
+    </class>
+
+</hibernate-mapping>

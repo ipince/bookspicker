@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.bookspicker.server.data.market">
+
+    <class name="MarketDataPoint" table="market_data">
+    
+        <id name="id" column="market_data_id" access="field" >
+            <generator class="native"/>
+        </id>
+        
+        <property name="buyClickStatId" not-null="true" access="field" />
+        <property name="store" not-null="true" access="field" />
+        <property name="price" not-null="true" access="field" />
+        <property name="bookCondition" access="field" />
+        <property name="date" not-null="true" access="field" />
+        
+    </class>
+
+</hibernate-mapping>

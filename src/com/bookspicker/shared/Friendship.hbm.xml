@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.bookspicker.shared">
+
+    <class name="Friendship" table="friendships">
+    
+        <id name="id" column="friendship_id">
+            <generator class="native"/>
+        </id>
+		<!-- Note: we're using field access (as opposed to 
+		getter/setter) because we want the Friendship class 
+		to be immutable. However, Hibernate needs to be able 
+		to mutate the class during its construction. By 
+		using "field" access, Hibernate uses Java reflection 
+		to construct the class, instead of using setters. 
+		Thus, we can remove the "final" modifiers from
+		Frienship's fields and also remove the setters, so
+		that nobody can edit the fields after construction. 
+		A better solution might be to create an 
+		ImmutableFriendship that gets built from a mutable 
+		Friendship. The ImmutableFriendship is what the 
+		FrienshipManager/factory returns, making it impossible 
+		for other classes to modify it. However, the current
+		solution is good enough and much simpler. -->
+		
+		<!-- Also note that the column names are distinct
+		from the property names because 'primary' is a 
+		reserved keyword in the database. -->
+        <property name="primary" column="prim" not-null="true" access="field" />
+        <property name="secondary" column="sec" not-null="true" access="field" />
+    </class>
+
+</hibernate-mapping>

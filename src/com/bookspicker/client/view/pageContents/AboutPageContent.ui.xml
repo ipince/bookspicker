@@ -1,0 +1,56 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.important {
+			font-weight: bold;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<div id="body-text">
+			<p>
+				BooksPicker grew out of our own frustrations as students buying 
+				books. The COOP's prices were absurdly high, and the process of 
+				buying books elsewhere was time-consuming and tedious, especially 
+				when we wanted to compare offers between online merchants and 
+				students.
+				<br />
+				<br />
+				But above all we did not like the fact that we could not just 
+				enter the classes we were taking and based on that find the books 
+				we needed. We thought that this should be an easy task, since The 
+				COOP had all the information, but we were wrong. We found out 
+				that The COOP was unwilling to share the information with anyone 
+				(including MIT). Apparently they obtain the information directly 
+				from the faculty, without going through an in-house MIT channel.
+				<br />
+				<br />
+				We thought this situation was unacceptable, so we decided to fight
+				for the freedom of the information (and this is why we are pirates).
+				We wrote an 
+				<a href="http://tech.mit.edu/V129/N35/letters.html" target="_blank">article on The Tech</a>
+				and started a discussion with many groups at MIT, including faculty,
+				IS&amp;T, and MIT Libraries. Our efforts and the Higher Education
+				Opportunity Act of 2008, which requires all educational institutions
+				provide such textbook information by June 2010, served as catalysts
+				for MIT to
+				<a href="http://web.mit.edu/newsoffice/2010/textbook-update.html" target="_blank">enhance its Online Textbook Information (OTI) system</a>.
+				As such, MIT now makes book information available to anyone,
+				including services such as the course catalog and Stellar.
+				The information provided by OTI is still incomplete, but we are
+				happy that things are moving in the right direction. And even though
+				our main fight is over, we are still here to serve you and provide
+				you with the best experience for buying and selling your textbooks.
+				<br />
+				<br />
+				BooksPicker was built by a group of three MIT students (Jonathan
+				Goldberg, Sinchan Banerjee, and Rodrigo Ipince) with the advice of
+				Professor David Karger.
+				<br />
+				<br />
+				We love feedback. If you have some, send it to us at bookspicker at
+				mit.edu.
+			</p>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

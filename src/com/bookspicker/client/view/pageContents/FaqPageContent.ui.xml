@@ -1,0 +1,341 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.answer {
+			padding:0 3%;
+		}
+		
+		.question{
+			font-weight: bold;
+		}
+		
+		.sectionHeader {
+			font-size: 18pt;
+			border-bottom:#DDD dotted 4px;
+			font-weight: bold;
+			padding-bottom: 10px;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<div id="body-text">
+		
+			<p class="{style.sectionHeader}">General</p>
+		
+			<p class="{style.question}">What is BooksPicker?</p>
+			<p class="{style.answer}">
+			It's a service built by MIT students to make book-buying fast and cheap.
+			Enter your classes and we'll tell you which books are required and which books
+			are just recommended. Pick the books you want to buy and we'll search on multiple
+			online stores and on-campus listings to find you the best prices out there.
+			We find the cheapest price for your entire book cart, which is often better
+			than searching for each book individually.
+			</p>
+			
+			<p class="{style.question}">Can I search for regular books not related to my classes?</p>
+			<p class="{style.answer}">
+			Yes. Just type in the ISBN of the book you're looking for in the search box, or
+			use keywords to find books by title, author, or subject.
+			</p>
+
+			<p class="{style.question}">I can't find the book I'm looking for. Why?</p>
+			<p class="{style.answer}">
+			This probably means Amazon doesn't have the book information, so we don't have it
+			either. We know, how can Amazon <i>not</i> have it? Not sure, but it happens.
+<!--			A well-known example of this problem is the chemistry book for 3.091.-->
+<!--			According to The COOP, the book's ISBN is "9780558333171", yet Amazon yields no-->
+<!--			results for that ISBN.-->
+			</p>
+			
+			<p class="{style.question}">What is an ISBN? Where can I find it?</p>
+			<p class="{style.answer}">
+			Every book officially published has an "International Standard Book Number" or ISBN.
+			The ISBN is a 10 or 13-digit number (old ISBNs were 10 digits) used to uniquely
+			identify a book. Typically a book's ISBN-13 will be its ISBN-10 with "978" up front.
+			Why? Because "978" is a country code for
+			"<a href="http://en.wikipedia.org/wiki/Bookland_%28imaginary_place%29" target="_blank">Bookland</a>",
+			an imaginary place created to reserve the "978" country code and use it as a prefix
+			for all barcode (EAN) identifiers referring to books. Weird, yeah...
+			</p>
+			<p class="{style.answer}">
+			Most books give you the ISBN on the back cover next to the barcode. If that fails,
+			check the preamble. The ISBN may include some dashes in between the digits; do not
+			include them when performing ISBN searches on our site.
+			</p>
+			
+			<p class="{style.question}">Why do you use Facebook for logging in?</p>
+			<p class="{style.answer}">
+			It's easy to integrate and it allows us to do many things, like:
+			<ul>
+			<li>Verify that you're a real person. We want to protect our buyers from bogus
+			sellers and protect our sellers from bogus buyers.</li>
+			<li>Better match buyers and sellers. We think you'd rather buy a book from a friend
+			or a friend's friend than from a stranger.</li>
+			<li>Save you (and us) the hassle of typing a new password, verifying an
+			email, etc.</li>
+    		</ul>
+    		</p>
+    		<p class="{style.answer}">
+    		Don't worry, we will never post anything to your wall without your permission!
+			</p>
+			
+			<p class="{style.question}">Do you make money?</p>
+			<p class="{style.answer}">
+			If you buy locally from another student, <i>we make absolutely no money</i>.
+			We're not a middleman, but a service that matches buyers and sellers for free.
+			</p>
+			<p class="{style.answer}">
+			If you buy from certain online stores (e.g., Amazon), we do get a small referral
+			fee. Note that the fee comes from the store, not from you, so you end up paying
+			the <i>same price</i> that you would've paid had you gone to the store directly. And in
+			any case, the revenue is barely enough to cover our hosting and advertising costs.
+			By buying the books through us, you're not helping us get rich, but you are
+			helping us pay the bills so we can maintain and improve the site!
+			</p>
+			
+			<p class="{style.question}">Why don't you add &lt;cool-feature&gt;?</p>
+			<p class="{style.answer}">
+			There's a bunch of features we'd like to add. But we're only 3 busy students doing
+			this in our spare time, so things take some time. These are some ideas we have in
+			mind, but if you have any other suggestions, do let us know!
+			<ul>
+			<li>Textbook feedback from other students</li>
+			<li>Book rentals</li>
+			<li>Integration with libraries</li>
+			<li>Fare alerts</li>
+			<li>Buy-back search</li>
+			<li>Search filters (ala Kayak)</li>
+    		</ul>
+			</p>
+			
+			<p class="{style.question}">I like BooksPicker, how can I spread the word?</p>
+			<p class="{style.answer}">
+			Tell your friends and 'Like' us on Facebook! (See top left corner!)
+			</p>
+			
+<!--			<p class="{style.question}">Are you going to maintain the site even after you leave MIT?</p>-->
+<!--			<p class="{style.answer}">-->
+<!--			Yes. We are aware that others have tried to solve the same problem as we do,-->
+<!--			but their solutions disappeared once they left MIT. We're committed to make-->
+<!--			this work for terms to come, even if we have to recruit a current MIT-->
+<!--			undergrad to maintain the site.-->
+<!--			</p>-->
+			
+			<p class="{style.sectionHeader}">Data</p>
+			
+			<p class="{style.question}">Where is your book list data coming from? Can I trust it?</p>
+			<p class="{style.answer}">
+<!--			Primarily, we get the information directly from MIT, from the <i>same source</i> that-->
+<!--			Stellar and the course catalog use. You can see the data yourself at the-->
+<!--			<a href="http://opendata.mit.edu/~opendata/www/index.php?title=OpenData:Community_Portal" target="_blank">OpenData</a>-->
+<!--			repository (requires an MIT certificate).-->
+<!--			When MIT has no data for a particular class, we turn to The COOP.-->
+			We use a variety of sources, but most of the data comes from your college bookstore.
+			They publish the class listings in their online
+			<a href="http://bncollege.com/" target="_blank">site</a>.
+			If it's not available there, we'll add it manually upon a user's request.
+			But who knows, maybe that class simply requires no textbooks!
+			</p>
+			<p class="{style.answer}">
+			So basically, if you can trust the data in your college bookstore,
+			you can trust ours. The only caveat is that sometimes we are unable to 'resolve'
+			some of the data. That is, we're unable to get the corresponding book
+			information from Amazon.
+<!--			A well-known example of this is the chemistry book for 3.091, which is a custom MIT book.-->
+			This happens rarely though, in maybe about ~1% of the listings.
+			</p>
+			
+<!--			<p class="{style.question}">The course catalog has books listed for x.xxx, but you don't. Why?</p>-->
+<!--			<p class="{style.answer}">-->
+<!--			The course catalog uses a "fallback" mechanism and they will display data from-->
+<!--			prior semesters whenever the data for the current semester is not available.-->
+<!--			We do not do that. We only show <i>current</i> Fall 2010 data from MIT, and whenever-->
+<!--			that's not available, we show <i>current</i> Fall 2010 data from The COOP. We do this-->
+<!--			because we prefer to show no data than to show <i>potentially</i> erroneous data.-->
+<!--			We really don't want you to buy a book you don't actually need!-->
+<!--			</p>-->
+			
+			<p class="{style.sectionHeader}">Buying</p>
+			
+			<p class="{style.question}">What's special about your BooksPicker cart? Why do you use it?</p>
+			<p class="{style.answer}">
+			A BooksPicker cart is simply a group of books. When we search for the cheapest prices for
+			your cart, we actually find the best prices for all possible book <i>combinations</i>. This means
+			your total price might be lower than the sum of the individual cheapest price
+			for each book in the cart. How? As an example, Amazon may offer free shipping
+			on orders over $x. So even if Harry Potter is more expensive at Amazon than it
+			is on eBay, it <i>might</i> be better to buy it from Amazon if it helps you put you
+			over the $x limit.
+			</p>
+			
+			<p class="{style.question}">Which stores do you currently show results from?</p>
+			<p class="{style.answer}">
+			At the moment, we support Amazon, Half (eBay), AbeBooks, and Alibris, but we
+			plan to add many more. We also show offers from local students through our local
+			sales platform.
+<!--			available through-->
+<!--			the APO Book Exchange and, of course, our own local sales platform.-->
+			</p>
+			<p class="{style.answer}">
+			In general, we'll try to include any legit online seller. We plan to add the
+			following stores in the near future: Biblio, Biggerbooks, eCampus, iChapters,
+			Textbooks.com, textbooksrus, and Overstock. Let us know if there's a particular
+			source we haven't thought of!
+			</p>
+			
+			<p class="{style.question}">What happens when I click 'Buy' on one of your offers?</p>
+			<p class="{style.answer}">
+			If you click on an offer for an external website, we send you to the place where
+			you can purchase the offer, whether it be Amazon, eBay, or whomever.
+			</p>
+			<p class="{style.answer}">
+			When you "buy" a local offer from BooksPicker, we'll put you in touch with the
+			seller so you can coordinate payment and pickup on your own terms. <i>We don't
+			actually handle any money.</i> Our role is to match buyers and sellers for free!
+			</p>
+			
+			<p class="{style.question}">Why are AbeBook's prices so low?</p>
+			<p class="{style.answer}">
+			Because they are specialists in selling rare and international editions, so
+			chances are the low prices you saw are for international edition books. See the
+			"International Editions" section to learn more about what this means.
+			</p>
+			
+			<p class="{style.sectionHeader}">Selling</p>
+			
+			<p class="{style.question}">Can I sell my books through BooksPicker? How?</p>
+			<p class="{style.answer}">
+			Yes! Click on "sell" and add offer listings for the books you want to sell.
+			All you need to have is the book's ISBN, the book's condition, and set a price
+			(hint: try our automatic pricing option!).
+			</p>
+			
+			<p class="{style.question}">What happens when someone buys my offer?</p>
+			<p class="{style.answer}">
+			You'll receive an email with the buyer's contact information so you can
+			coordinate with him/her directly and carry out the transaction. <i>We don't
+			actually handle any money.</i> Our role is to match buyers and sellers for
+			free!
+			</p>
+			
+			<p class="{style.question}">Why does my offer listing expire?</p>
+			<p class="{style.answer}">
+			If you book does not sell within 5 days, we will take it off the listings
+			(similar to Craigslist). We don't want out-dated offers lingering around
+			in the search results. However, when your offer expires we'll send you a
+			notification so you can quickly re-post it if you want to.
+			</p>
+			
+			<p class="{style.question}">What is automatic pricing?</p>
+			<p class="{style.answer}">
+			It's a method we created to price for your book for you. All you have to
+			do is choose one of the two selling strategies:
+			<ul>
+			<li>Quickie Sale (recommended): sets the price to be highly competitive
+			within the market, making your book sell <i>fast</i>.</li>
+			<li>Money Lover: sets the price competitively but not as much. It may take
+			longer to sell but you'll get more cash.</li>
+			</ul>
+			</p>
+			<p class="{style.answer}">
+			The automatic price will depend on the current market conditions as well
+			as the book's condition. Thus, <i>the price today may differ from the price
+			tomorrow</i>, but your book will always remain adequately priced!
+			</p>
+			<p class="{style.answer}">
+			And if you're scared that the automatic price might drop too low, you can
+			set a lower bound and we'll never sell your book for less than that.
+			</p>
+			<p class="{style.answer}">
+			Don't sell your book for peanuts just to make a quick sale! Try our
+			automatic pricing and sell fast <i>and</i> for good value!
+			</p>
+			
+<!--			<p class="{style.question}">Why do you ask for my book's location?</p>-->
+<!--			<p class="{style.answer}">-->
+<!--			Whenever possible, we'll try to match you with a buyer who is-->
+<!--			geographically close to you. We think you prefer to sell to someone in-->
+<!--			your dorm than someone across campus!-->
+<!--			</p>-->
+			
+			<p class="{style.question}">How do you use my Facebook information?</p>
+			<p class="{style.answer}">
+			Whenever possible, we'll try to match you with a buyer who is socially
+			close to you. We think you prefer to sell to a friend or a friend's
+			friend than to a complete stranger!
+			</p>
+			
+			<p class="{style.question}">Why should I sell my books at BooksPicker instead of, say, sending an email to my dorm?</p>
+			<p class="{style.answer}">
+			Beside the fact that this service was built specially for you, we think
+			you should sell your books through us because:
+			<ul>
+			<li>We have a bigger audience than your dorm email list has, and you
+			can avoid being hated by everyone you just spammed who isn't looking for books.</li>
+			<li><i>We do not take a single penny from your sale</i>, unlike most other local
+			sales services.</li>
+			<li>You can sell fast and get a great return when you use our automatic
+			pricing option. And you don't even have to think!</li>
+			<li>You'll get buyers who are geographically and socially close to you to
+			minimize hassles!</li>
+			</ul>
+			</p>
+
+			<p class="{style.sectionHeader}">International Editions</p>
+			
+			<p class="{style.question}">What's an international edition textbook?</p>
+			<p class="{style.answer}">
+			It's simply the international counterpart to a US edition. Most international
+			editions have slightly different covers and many have different ISBNs on the
+			outside covers (although some have the same ISBN as the US edition on the inside).
+			These books were originally created to be sold in different regions.
+			</p>
+			
+			<p class="{style.question}">Why are international editions so much cheaper?</p>
+			<p class="{style.answer}">
+			We don't know, they just are. But textbooks aren't the only things that are
+			cheaper overseas than in the US... Can you think of any other examples?
+			</p>
+			
+			<p class="{style.question}">Is it legal to buy international editions in the US?</p>
+			<p class="{style.answer}">
+			Yes! Textbook publishers would love to have people think otherwise, but
+			courts have time and time again asserted your right to purchase international
+			editions. If you don't want to take our word for it, check out this
+			<a href="http://www.nytimes.com/2003/10/21/us/students-find-100-textbooks-cost-50-purchased-overseas.html" target="_blank">article</a>.
+			</p>
+			
+			<p class="{style.question}">What risks am I taking by buying international editions?</p>
+			<p class="{style.answer}">
+			Not many really, but here are some things to consider:
+			<ul>
+			<li>Though international and US editions are usually <i>exactly the same</i>, word
+			for word, page by page, there's a very small chance that they'll have slight
+			differences.</li>
+			<li>Many times the international edition is paperback, while the US edition is
+			hard cover, so watch out for that if you care about it.</li>
+			<li>The international edition book will usually (but not always) ship from an
+			overseas location, which means the shipping cost <i>might</i> be higher and the
+			waiting time <i>might</i> be greater. Of course, the lower price more than makes up
+			for it, provided you can wait the extra time (if any).</li>
+			</ul>
+			</p>
+			<p class="{style.answer}">
+			We personally think international editions are a great alternative to the
+			expensive US editions, but buy at your own risk!
+			</p>
+			
+<!--			<p></p>-->
+<!--			<p class="{style.answer}">-->
+<!--			</p>-->
+<!--			-->
+<!--			<p></p>-->
+<!--			<p class="{style.answer}">-->
+<!--			</p>-->
+<!--			-->
+<!--			<p></p>-->
+<!--			<p class="{style.answer}">-->
+<!--			</p>-->
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

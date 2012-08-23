@@ -1,0 +1,112 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+#title-text {
+	border-color:#F2CC0F;
+	border-style:none dotted dotted;
+	border-width:0 2px 2px;
+	margin:-5px;
+	padding:10px;
+	width:100%;
+	font-size: 11pt;
+}
+
+#heading {
+	font-size: 14pt;
+	border-bottom:1px dotted #F2CC0F;
+}
+
+.button a{
+	display:block;
+	background-color:#f2cc0f;
+	color:#000;
+	padding:5px;
+	font-size:24px;
+	border: solid thick #f2cc0f;
+	text-decoration:none;
+	width:10em;
+}
+
+.button a:hover {
+	border: solid thick black;
+}
+
+#news-table{
+	width:100%;
+	text-align:left;
+	vertical-align:top;
+}
+
+.news-row{
+	
+}
+	
+.news-td{
+	font-size: 11pt;
+	border-bottom: dotted 2px #f2cc0f;
+	padding: 10px 0;
+}
+
+.helper-text {
+	color:#666;
+	font-size:10pt;
+}
+
+#books-button-wrapper{
+	float:left;
+}
+
+#course-button-wrapper{
+	float:right;
+}
+
+#or-text {
+	display:block;
+	padding: 0 2em;
+	color:#CCC;
+	font-size:4em;
+	
+}
+	</ui:style>
+	
+	<g:HTMLPanel>
+		<g:SimplePanel ui:field="searchBoxWrapper">
+		</g:SimplePanel>
+		<div id="home-body-text"> 
+		<div id="title-text">
+			<div id="heading">Welcome to BooksPicker!</div>
+			<b>
+			<ol>
+			<li>Search for your classes or books! </li>
+			<li>Pick books to fill your Bundle!</li>
+			<li>Get the cheapest offers and save bootloads of cash! </li>
+			</ol>
+			</b>
+			Giving you offers from online stores, fellow students, and your college bookstore, BooksPicker is the best way to get your textbooks!
+		</div>
+		<br />
+	    <table id="news-table">
+	   		<tr class="{style.news-row}">
+				<td class="{style.news-td}" rowspan='1'>
+					<b>We’re ready for Spring 2012! </b><br />
+					Find the books you need and save a lot of money!
+<!--					<ul>-->
+<!--					<li>Now you can also <b>sell your books</b> through BooksPicker! <a href="#sell">Try it out!</a></li>-->
+<!--					<li>We added the APO Book Exchange, a great source of local books.</li>-->
+<!--					<li>We added AbeBooks, a great source for low-cost international editions.</li>-->
+<!--					<li>We rebuilt the site from the ground up to make it more reliable and way faster.</li>-->
+<!--					</ul>-->
+				</td>
+			</tr>
+	    </table>
+    
+    <!--<p>//TODO: we need a better place for this crap: </p>
+<p>Disclaimer : "Product prices and availability are accurate as of the date/time indicated and are subject to change. Any price and availability information displayed on [amazon.com and other websites, as applicable] at the time of purchase will apply to the purchase of this product."
+"CERTAIN CONTENT THAT APPEARS [IN THIS APPLICATION or ON THIS SITE, as applicable] COMES FROM AMAZON SERVICES LLC. THIS CONTENT IS PROVIDED ÔAS ISÕ AND IS SUBJECT TO CHANGE OR REMOVAL AT ANY TIME."
+"Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates";</p>-->
+
+  </div>
+
+	</g:HTMLPanel>
+</ui:UiBinder> 

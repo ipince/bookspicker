@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+	<listener>
+		<listener-class>com.bookspicker.server.services.SuggestionPreprocessor</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.bookspicker.server.social.SocialGraph</listener-class>
+	</listener>
+
+
+	<servlet>
+		<servlet-name>QueryService</servlet-name>
+		<servlet-class>com.bookspicker.server.services.QueryServiceImpl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>TestServlet</servlet-name>
+		<servlet-class>com.bookspicker.test.server.services.TestServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>FacebookAuthServlet</servlet-name>
+		<servlet-class>com.bookspicker.server.services.FacebookAuthServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RedirectServlet</servlet-name>
+		<servlet-class>com.bookspicker.server.services.RedirectServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UserService</servlet-name>
+		<servlet-class>com.bookspicker.server.services.UserServiceImpl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LocalOfferService</servlet-name>
+		<servlet-class>com.bookspicker.server.services.LocalOfferServiceImpl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SuggestionService</servlet-name>
+		<servlet-class>com.bookspicker.server.services.SuggestionServiceImpl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>StatService</servlet-name>
+		<servlet-class>com.bookspicker.server.services.StatServiceImpl</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Log4JInitServlet</servlet-name>
+		<servlet-class>com.bookspicker.Log4JInitServlet</servlet-class>
+		<init-param>
+			<param-name>log4j-properties</param-name>
+			<param-value>/WEB-INF/classes/log4j.properties</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>QueryService</servlet-name>
+		<url-pattern>/bookspicker/query</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>FacebookAuthServlet</servlet-name>
+		<url-pattern>/bookspicker/fb_auth</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RedirectServlet</servlet-name>
+		<url-pattern>/redirect</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TestServlet</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserService</servlet-name>
+		<url-pattern>/bookspicker/user</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LocalOfferService</servlet-name>
+		<url-pattern>/bookspicker/local_offer</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SuggestionService</servlet-name>
+		<url-pattern>/bookspicker/suggest</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>StatService</servlet-name>
+		<url-pattern>/bookspicker/stats</url-pattern>
+	</servlet-mapping>
+
+	
+	<!-- Default page to serve -->
+	<welcome-file-list>
+		<welcome-file>BooksPicker.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

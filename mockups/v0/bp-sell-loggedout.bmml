@@ -1,0 +1,106 @@
+<mockup version="1.0" skin="sketch" measuredW="1002" measuredH="630" mockupW="992" mockupH="620">
+  <controls>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="0" y="0" w="992" h="620" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties>
+        <text>BooksPicker%0Ahttp%3A//www.bookspicker.com/%23sell</text>
+        <verticalScrollbar>false</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Image" x="76" y="102" w="205" h="80" measuredW="236" measuredH="90" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <filter>true</filter>
+        <href>bp-home%26bm%3Bbp-home.bmml%26bm%3Bbp-home.bmml%26bm%3Bbp-home.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2276%2C102%2C281%2C182%22%20href%3D%22bp-home.bmml%22%20alt%3D%22bp-home%22%20id%3D%224%22/%3E</map>
+        <src>../eclipse-workspaces/workspace-web/BooksPicker%25202.0/src/com/bookspicker/client/images/logo.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::TitleWindow" x="56" y="187" w="880" h="398" measuredW="450" measuredH="400" zOrder="3" locked="true" isInGroup="-1">
+      <controlProperties>
+        <bottomheight>0</bottomheight>
+        <close>false</close>
+        <dragger>false</dragger>
+        <maximizeRestore>false</maximizeRestore>
+        <minimize>false</minimize>
+        <text>sell%20your%20books</text>
+        <topheight>26</topheight>
+        <value>0</value>
+        <verticalScrollbar>false</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::IconLabel" x="859" y="80" w="-1" h="-1" measuredW="121" measuredH="20" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <href>bp-sell-loggedin%26bm%3Bbp-sell-loggedin.bmml%26bm%3Bbp-sell-loggedin.bmml%26bm%3Bbp-sell-loggedin.bmml</href>
+        <icon>FacebookIcon%7Cxsmall</icon>
+        <labelPosition>right</labelPosition>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22859%2C80%2C980%2C100%22%20href%3D%22bp-sell-loggedin.bmml%22%20alt%3D%22bp-sell-loggedin%22%20id%3D%2226%22/%3E</map>
+        <size>10</size>
+        <text>Login%20with%20Facebook</text>
+        <underline>false</underline>
+      </controlProperties>
+    </control>
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::Paragraph" x="76" y="229" w="645" h="123" measuredW="200" measuredH="140" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>You%20need%20to%20be%20logged%20in%20in%20order%20to%20sell%20books%21%0A%20%0AWhy%3F%20We%20need%20a%20verified%20MIT%20email%20address.%20Read%20more%20about%20how%20local%20sales%20work%20in%20the%20FAQs.</text>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::IconLabel" x="99" y="327" w="-1" h="-1" measuredW="158" measuredH="25" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <href>bp-sell-loggedin%26bm%3Bbp-sell-loggedin.bmml%26bm%3Bbp-sell-loggedin.bmml%26bm%3Bbp-sell-loggedin.bmml</href>
+        <icon>FacebookIcon%7Csmall</icon>
+        <labelPosition>right</labelPosition>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2299%2C327%2C257%2C352%22%20href%3D%22bp-sell-loggedin.bmml%22%20alt%3D%22bp-sell-loggedin%22%20id%3D%2229%22/%3E</map>
+        <size>13</size>
+        <text>Login%20with%20Facebook</text>
+        <underline>false</underline>
+      </controlProperties>
+    </control>
+    <control controlID="35" controlTypeID="__group__" x="629" y="102" w="-1" h="-1" measuredW="292" measuredH="79" zOrder="1" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Image" x="109" y="0" w="61" h="78" measuredW="96" measuredH="99" zOrder="0" locked="false" isInGroup="35">
+          <controlProperties>
+            <filter>true</filter>
+            <href>bp-sell-loggedout%26bm%3Bbp-sell-loggedout.bmml%26bm%3Bbp-sell-loggedout.bmml%26bm%3Bbp-sell-loggedout.bmml</href>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22738%2C102%2C799%2C180%22%20href%3D%22bp-sell-loggedout.bmml%22%20alt%3D%22bp-sell-loggedout%22%20id%3D%220%22/%3E</map>
+            <src>../eclipse-workspaces/workspace-web/BooksPicker%25202.0/src/com/bookspicker/client/images/nav_sell_test_over.png</src>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Image" x="48" y="0" w="61" h="78" measuredW="69" measuredH="95" zOrder="1" locked="false" isInGroup="35">
+          <controlProperties>
+            <filter>true</filter>
+            <href>bp-search-loggedout%26bm%3Bbp-search-loggedout.bmml%26bm%3Bbp-search-loggedout.bmml%26bm%3Bbp-search-loggedout.bmml</href>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22677%2C102%2C738%2C180%22%20href%3D%22bp-search-loggedout.bmml%22%20alt%3D%22bp-search-loggedout%22%20id%3D%221%22/%3E</map>
+            <src>../eclipse-workspaces/workspace-web/BooksPicker%25202.0/src/com/bookspicker/client/images/nav_search.gif</src>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Image" x="0" y="0" w="48" h="78" measuredW="55" measuredH="95" zOrder="2" locked="false" isInGroup="35">
+          <controlProperties>
+            <filter>true</filter>
+            <href>bp-home%26bm%3Bbp-home.bmml%26bm%3Bbp-home.bmml%26bm%3Bbp-home.bmml</href>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22629%2C102%2C677%2C180%22%20href%3D%22bp-home.bmml%22%20alt%3D%22bp-home%22%20id%3D%222%22/%3E</map>
+            <src>../eclipse-workspaces/workspace-web/BooksPicker%25202.0/src/com/bookspicker/client/images/nav_home.gif</src>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::Image" x="170" y="0" w="54" h="78" measuredW="61" measuredH="95" zOrder="3" locked="false" isInGroup="35">
+          <controlProperties>
+            <filter>true</filter>
+            <src>../eclipse-workspaces/workspace-web/BooksPicker%25202.0/src/com/bookspicker/client/images/nav_faq.gif</src>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::Image" x="224" y="1" w="68" h="78" measuredW="77" measuredH="95" zOrder="4" locked="false" isInGroup="35">
+          <controlProperties>
+            <filter>true</filter>
+            <src>../eclipse-workspaces/workspace-web/BooksPicker%25202.0/src/com/bookspicker/client/images/nav_about.gif</src>
+            <text/>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>

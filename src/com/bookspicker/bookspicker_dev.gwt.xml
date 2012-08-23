@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='bookspicker'>
+	<!-- Inherit BP -->
+	<inherits name='com.bookspicker.bookspicker' />
+
+	<!-- Limit the compilation permutations -->
+	<set-property name="user.agent" value="safari"/> 
+</module>

@@ -1,0 +1,65 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with field='res' type='com.bookspicker.client.view.Resources' />
+	<ui:style>
+		.logo {
+			text-align: center;
+			padding: 20px 0;
+			width: 100%;
+		}
+		.directions {
+			text-align: center;
+			width: 100%;
+			padding: 10px;
+			color: black;
+			background-color: none;/*#d1b00b;*/
+			font-size: 1.3em;
+		}
+		a.school {
+			text-align: center;
+			width: 100%;
+			padding: 10px;
+			background-color: none;
+			font-size: 1.3em;
+			text-decoration: none;
+			color:black;
+			display: block;
+			font-weight: bold;
+		}
+		
+		a:hover {
+			color: #e1be0e;
+			background-color: black;
+		}
+		
+		.schoolsContainer{
+			width:100%;
+			text-align: center;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<div class='{style.logo}'>
+		<g:Image ui:field="logo" resource='{res.logo}' />
+		</div>
+		
+		<div class='{style.directions}'> 
+			pick your school and we’ll get you the books you need
+		</div>
+		
+		<div class='{style.schoolsContainer}'>
+			<a class='{style.school}' href="#youpickeddartmouth">dartmouth college</a>
+			<a class='{style.school}' href="#youpickedmit">massachusetts institute of technology</a>
+			<a class='{style.school}' href="#youpickeduchicago">university of chicago</a>
+			<a class='{style.school}' href="#youpickednorthwestern">northwestern university</a>
+		</div>
+		
+		<div class='{style.directions}'> 
+			<br />
+			<br />
+			School not on the list yet? Search by title, ISBN, author or keyword.
+		</div>
+		<g:SimplePanel ui:field='searchBoxWrapper'></g:SimplePanel>	
+		
+	</g:HTMLPanel>
+</ui:UiBinder> 

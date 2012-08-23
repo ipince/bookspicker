@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.bookspicker.shared">
+
+    <class name="Book" table="books">
+    
+        <id name="id" column="book_id">
+            <generator class="native"/>
+        </id>
+        <property name="title" not-null="true" />
+        <property name="authorList" not-null="true" >
+        	<column name="authorList" sql-type="mediumblob" />
+        </property>
+        <property name="isbn" />
+        <property name="ean" />
+        <property name="listPrice" not-null="true" />
+        <property name="imageUrl" />
+        <property name="edition" />
+        <property name="publisher" />
+    </class>
+
+</hibernate-mapping>

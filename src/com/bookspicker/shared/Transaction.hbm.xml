@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.bookspicker.shared">
+
+    <class name="Transaction" table="transactions">
+    
+        <id name="id" column="transaction_id" access="field">
+            <generator class="native"/>
+        </id>
+        <property name="buyerId" not-null="true" access="field" />
+        <property name="isbn" not-null="true" access="field" />
+        <property name="time" not-null="true" access="field" />
+        
+    </class>
+
+</hibernate-mapping>

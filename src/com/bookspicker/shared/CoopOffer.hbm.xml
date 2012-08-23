@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.bookspicker.shared">
+
+    <class name="CoopOffer" table="coop_offers">
+    
+        <id name="id" column="coop_offer_id" access="field" >
+            <generator class="native"/>
+        </id>
+        
+        <property name="isbn" not-null="true" access="field" />
+        <property name="price" not-null="true" access="field" />
+        <property name="condition" column="bookCondition"
+        	not-null="true" access="field" />
+        <property name="url" not-null="true"
+        	access="field" length="300" />
+    </class>
+
+</hibernate-mapping>

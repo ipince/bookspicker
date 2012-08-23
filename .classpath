@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/hibernate3.jar"/>
+	<classpathentry kind="lib" path="lib/prowser-0.2.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-simple-1.5.8.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-api-1.5.8.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/mysql-connector-java-5.1.10-bin.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/javassist-3.9.0.GA.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-log-3.0.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-servlet.jar"/>
+	<classpathentry kind="lib" path="lib/htmlcleaner2_1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/json.org.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/c3p0-0.9.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/mail-1.4.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-java-client-driver.jar"/>
+	<classpathentry kind="lib" path="lib/jcommander-1.18.jar"/>
+	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER/gwt-2.0.3"/>
+	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+</classpath>
