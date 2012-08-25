@@ -5,6 +5,13 @@
 *.war
 *.ear
 
-# Include lib folder
+# Folders
+war/WEB-INF/classes
+.settings
+
+# Include libs folder
 !lib/*
 !war/WEB-INF/lib/*
+
+# Exclude GWT-dependent gwt-servlet.jar
+war/WEB-INF/lib/gwt-servlet.jar
