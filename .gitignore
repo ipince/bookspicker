@@ -7,3 +7,4 @@
 
 # Include lib folder
 !lib/*
+!war/WEB-INF/lib/*
