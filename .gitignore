@@ -7,9 +7,13 @@
 
 # Folders
 war/WEB-INF/classes
+war/WEB-INF/deploy
+war/bookspicker
+war/logs
+gwt-UnitCache
 .settings
 
-# Include libs folder
+# Include libs folders
 !lib/*
 !war/WEB-INF/lib/*
 
