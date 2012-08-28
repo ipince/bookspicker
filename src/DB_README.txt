@@ -15,7 +15,7 @@ This README has two parts:
     b. create the db: create database bp_qa
     c. provide access to bp: grant all privileges on bp_qa.* to bp@localhost identified by '<password>';
     d. go back to the command line and load the dump file:  mysql -u root --password="password" bp_qa < db/bp_schema.sql
-    e. Test your db setting: mysql -u bp -p'<password>' -D bp_production
+    e. Test your db setting: mysql -u bp -p'<password>' -D bp_qa
 
 ** if you want to load a new dump drop the database and load it from scratch...
 
