@@ -169,6 +169,7 @@ public class ModernOfferTablePanel extends FlowPanel {
 			table.setText(row, 2, NumberUtil.getDisplayPrice(offer.getPrice()));
 			table.setText(row, 3, NumberUtil.getDisplayPrice(offer.getShipping()));
 			table.setText(row, 4, NumberUtil.getDisplayPrice(offer.getTotalPrice()));
+			cellFormatter.setStylePrimaryName(row, 4, style.selectedOfferPrice());
 
 			HorizontalPanel buttons = new HorizontalPanel();
 			buttons.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);

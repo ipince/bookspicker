@@ -551,7 +551,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 
 .offersTable td {
-	padding: 2px 7px;
+	padding: 3px 10px;
 	font-size: 11pt;
 	font-weight: normal;
 }
@@ -565,9 +565,9 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 
 .selectedOfferPrice {
-	font-size: 18pt !important;
-	font-weight: normal;
-	background-color: #EEE;
+	font-weight: bold !important;
+	background-color: white;
+	border: 1px #AAA solid;
 }
 
 
