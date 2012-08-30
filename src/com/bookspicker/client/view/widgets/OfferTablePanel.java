@@ -38,7 +38,7 @@ public class OfferTablePanel extends FlowPanel {
 
 	Style style = Resources.INSTANCE.style();
 	private final String EXPAND_TEXT = "Show More Offers..";
-	private final String COLLAPSE_TEXT = "Show Less Offers..";
+	private final String COLLAPSE_TEXT = "Show Fewer Offers..";
 	Label expandCollapseLabel;
 	
 	private Book book;
