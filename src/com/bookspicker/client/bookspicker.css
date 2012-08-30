@@ -566,8 +566,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 
 .selectedOfferPrice {
 	font-weight: bold !important;
-	background-color: white;
-	border: 1px #AAA solid;
+	background-color: #ffed73;
 }
 
 
@@ -648,15 +647,15 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 
 
 .resultsBookDetails * {
-	font-weight: bold;
-	color: #555555;
-	font-size: 9pt;
+	color: #777;
+	font-size: 11pt;
 }
 
 .resultsBookTitle {
 	font-style: italic;
-	font-size: 11pt;
-	color: #000001;
+	font-size: 13pt;
+	color: #000;
+	font-weight: bold;
 }
 
 .resultsBookViewNote{
@@ -740,8 +739,9 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 
 .resultsBookImage {
 	width: 100px;
-	padding-right: 7px;
+	margin-right: 7px;
 	max-height: 175px;
+	border: 1px #BBB solid;
 }
 
 

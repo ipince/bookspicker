@@ -175,7 +175,7 @@ public class ModernOfferTablePanel extends FlowPanel {
 			buttons.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
 			buttons.setStylePrimaryName(style.offerButtonPanel());
 
-			buttons.add(new BuyOfferButton(book, offer));
+			buttons.add(new BuyOfferButton(book, offer, true));
 			table.setWidget(row, 5, buttons);
 		}
 	}

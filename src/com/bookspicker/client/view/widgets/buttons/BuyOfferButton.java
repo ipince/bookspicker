@@ -2,6 +2,7 @@ package com.bookspicker.client.view.widgets.buttons;
 
 import com.bookspicker.client.view.Resources;
 import com.bookspicker.client.view.SearchPage;
+import com.bookspicker.client.view.SearchPageUnified;
 import com.bookspicker.shared.Book;
 import com.bookspicker.shared.Offer;
 import com.google.gwt.dom.client.Style.Cursor;
@@ -14,6 +15,16 @@ public class BuyOfferButton extends FocusPanel{
 	boolean enabled;
 	Image disabledImage = new Image(Resources.INSTANCE.buyOfferButtonDisabled());
 	Image enabledImage = new Image(Resources.INSTANCE.buyOfferButton());
+	
+	public BuyOfferButton(Book book, Offer _offer, boolean isUnified) {
+		super();		
+		this.addStyleName(Resources.INSTANCE.style().bpButton());
+		this.book = book;
+		offer = _offer;
+		enabled = true;
+		this.setWidget(new Image(Resources.INSTANCE.buyOfferButton()));
+		this.addClickHandler(SearchPageUnified.buyHandler);
+	}
 	
 	public BuyOfferButton(Book book, Offer _offer) {
 		super();		

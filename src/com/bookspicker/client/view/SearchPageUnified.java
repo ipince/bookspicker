@@ -1,6 +1,7 @@
 package com.bookspicker.client.view;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import com.bookspicker.client.service.QueryService;
 import com.bookspicker.client.service.QueryServiceAsync;
 import com.bookspicker.client.service.StatService;
 import com.bookspicker.client.service.StatServiceAsync;
+import com.bookspicker.client.view.widgets.buttons.BuyOfferButton;
 import com.bookspicker.client.view.widgets.buttons.PickButton;
 import com.bookspicker.shared.Book;
 import com.bookspicker.shared.ClassBook;
@@ -33,6 +35,7 @@ import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.DeferredCommand;
 import com.google.gwt.user.client.History;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.SimplePanel;
@@ -78,6 +81,8 @@ public class SearchPageUnified extends Composite implements HasHeader {
     // Used to keep track of which results to render
     // on the page
     private static int offerRequestCounter = 0;
+    
+    private static Map<Book, List<Offer>> bookOffers = new HashMap<Book, List<Offer>>();
 
     public SearchPageUnified() {
         initWidget(uiBinder.createAndBindUi(this));
@@ -207,24 +212,24 @@ public class SearchPageUnified extends Composite implements HasHeader {
     }
 
     
-//    public static ClickHandler buyHandler = new ClickHandler() {
-//    	@Override
-//    	public void onClick(ClickEvent event) {
-//    		BuyOfferButton button = (BuyOfferButton) event.getSource();
-//
-//    		Book book = button.getBook();
-//    		Offer clickedOffer = button.getOffer();
-//    		List<Offer> competingOffers = bundle.getBookOffers(book);
-//
-//    		// Save stat
-//    		statService.logBuyClick(book.getIsbn(),
-//    				clickedOffer, competingOffers,
-//    				emptyCallback);
-//
-//    		// Open window with offer
-//    		Window.open(button.getOffer().getUrl(), "_blank", "");
-//    	}
-//    };
+    public static ClickHandler buyHandler = new ClickHandler() {
+    	@Override
+    	public void onClick(ClickEvent event) {
+    		BuyOfferButton button = (BuyOfferButton) event.getSource();
+
+    		Book book = button.getBook();
+    		Offer clickedOffer = button.getOffer();
+    		List<Offer> competingOffers = bookOffers.get(book);
+
+    		// Save stat
+    		statService.logBuyClick(book.getIsbn(),
+    				clickedOffer, competingOffers,
+    				emptyCallback);
+
+    		// Open window with offer
+    		Window.open(button.getOffer().getUrl(), "_blank", "");
+    	}
+    };
 
 
     // ============= Callbacks =============
@@ -242,6 +247,7 @@ public class SearchPageUnified extends Composite implements HasHeader {
     		@Override
     		public void onSuccess(List<Offer> result) {
 				bookView.showOffers(result);
+				SearchPageUnified.bookOffers.put(bookView.getBook(), result);
     		}
 
     		@Override
