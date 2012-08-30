@@ -49,6 +49,17 @@ public class QueryServiceImpl extends RemoteServiceServlet implements QueryServi
 	private static final long serialVersionUID = -5593522948722613639L;
 	private static Logger logger = Log4JInitServlet.logger;
 
+	@Override
+	public List<Offer> getOffersForBook(School school, Book book, boolean includeLocal) {
+		//TODO: Remove bundle concept from backend and make everything book based. Right now 
+		// Backend is tightly integrated with the concept of a bundle, thats why the dummybundle
+		// hack is used. Unideal for sure, but at least we are able to take out bundle concept
+		// from the front end.
+		Bundle dummyBundle = new Bundle();
+		dummyBundle.addBook(book);
+		return getOffersForBundle(school, dummyBundle, includeLocal).getOffersSortedByPrice(book);
+	}
+	
 	
 	public Bundle getOffersForBundle(School school, Bundle bundle, boolean includeLocal) {
 		long start = System.currentTimeMillis();
@@ -96,7 +107,7 @@ public class QueryServiceImpl extends RemoteServiceServlet implements QueryServi
 	private static void updateCache(Bundle bundle) {
 	   CACHE.update(bundle);
     }
-
+	
     public static void getOnlineOffers(final Bundle bundle) {
         // Get online offers
 		List<BookstoreQuery> bookstoreServices = getBookstoreServices();

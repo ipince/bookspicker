@@ -21,6 +21,7 @@ import com.bookspicker.client.view.Resources;
 import com.bookspicker.client.view.ResultsView;
 import com.bookspicker.client.view.SchoolSelectionPage;
 import com.bookspicker.client.view.SearchPage;
+import com.bookspicker.client.view.SearchPageUnified;
 import com.bookspicker.client.view.SellerPage;
 import com.bookspicker.client.view.pageContents.HomePageContent;
 import com.bookspicker.shared.School;
@@ -58,6 +59,7 @@ public class BooksPicker implements EntryPoint, ValueChangeHandler<String> {
 	private final UserServiceAsync userService = GWT.create(UserService.class);
 	private final LocalOfferServiceAsync offerService = GWT.create(LocalOfferService.class);
 	private final QueryServiceAsync queryService = GWT.create(QueryService.class);
+	private SearchPageUnified searchPageUnified;
 	private static String preSchoolSelectionToken = "";
 	
 	/**
@@ -150,6 +152,21 @@ public class BooksPicker implements EntryPoint, ValueChangeHandler<String> {
 			}
 			current = homePage;
 			RootLayoutPanel.get().add(homePage);
+		} else if (token.startsWith(HistoryToken.SEARCH_UNIFIED)) {
+			Map<String, String> params = parseParams(token);
+			if (searchPageUnified == null)
+				searchPageUnified = new SearchPageUnified();
+			searchPageUnified.updateLoginContainer();
+			if(getSchool().equals(School.NONE)){
+				ResultsView.setGeneric(true);
+			}
+			else{
+				ResultsView.setGeneric(false);
+			}
+			current = searchPageUnified;
+			searchPageUnified.setState(params.get(HistoryToken.PARAM_QUERY),
+					params.get(HistoryToken.PARAM_BUNDLE), params.get(HistoryToken.PARAM_OFFERS), params.get(HistoryToken.DISPLAYED_QUERY));
+			RootLayoutPanel.get().add(searchPageUnified);
 		} else if (token.startsWith(HistoryToken.SEARCH)) {
 			Map<String, String> params = parseParams(token);
 			if (searchPage == null)

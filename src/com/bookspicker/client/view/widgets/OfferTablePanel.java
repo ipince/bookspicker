@@ -108,8 +108,8 @@ public class OfferTablePanel extends FlowPanel {
 			expandedOffersTable.setWidget(0, c, new Label(columnHeaders[c]));
 			collapsedOffersTable.setWidget(0, c, new Label(columnHeaders[c]));
 		}
-		expandedOffersTable.getCellFormatter().setStylePrimaryName(0, 0, style.offerStore());
-		collapsedOffersTable.getCellFormatter().setStylePrimaryName(0, 0, style.offerStore());
+		expandedOffersTable.getCellFormatter().setStylePrimaryName(0, 0, style.leftAligned());
+		collapsedOffersTable.getCellFormatter().setStylePrimaryName(0, 0, style.leftAligned());
 	}
 	
 	private void updateCollapsedTable() {
@@ -153,7 +153,7 @@ public class OfferTablePanel extends FlowPanel {
 		rowFormatter.setVerticalAlign(row, HasVerticalAlignment.ALIGN_MIDDLE);
 		if (offer != null) {
 			table.setText(row, 0, offer.getStoreName().getName());
-			cellFormatter.setStylePrimaryName(row, 0, style.offerStore());
+			cellFormatter.setStylePrimaryName(row, 0, style.leftAligned());
 			/*table.setText(row, 1, offer.getSellerName());
 			table.setWidget(row, 2, new HTML(offer.getCondition()));
 			//		cellFormatter.setHorizontalAlignment(row, 3, HasHorizontalAlignment.ALIGN_CENTER);

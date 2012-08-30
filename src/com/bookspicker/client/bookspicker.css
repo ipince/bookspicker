@@ -22,6 +22,28 @@ body,html {
 	display: inline-block;
 }
 
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+	display: inline-block;
+	height: 20px;
+	padding: 4px 6px;
+	margin-bottom: 9px;
+	font-size: 14px;
+	line-height: 20px;
+	color: #555;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color: white;
+	border: 1px solid #AAA;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.leftAligned {
+	text-align: left;
+}
+
 /****** Seller and Buyer Page ******/
 
 .offerManagementPanel {
@@ -271,9 +293,9 @@ body,html {
 	right: 0;
 	border-top: 10px solid #ffed73;
 	border-bottom: 10px solid #ffed73;
-	-webkit-box-shadow: 1px 1px 5px #666;
-	-moz-box-shadow: 1px 1px 5px #666;
-	box-shadow: 1px 1px 5px #666;
+	-webkit-box-shadow: 0px 0px 6px #666;
+	-moz-box-shadow: 0px 0px 6px #666;
+	box-shadow: 0px 0px 6px #666;
 	padding: value('bpPanelBorder1.getHeight', 'px')
 		value('bpPanelBorder2.getWidth', 'px')
 		value('bpPanelBorder3.getHeight', 'px')
@@ -507,7 +529,7 @@ body,html {
 
 .bookOfferView {
 	border-bottom: 2px dotted #DDD;
-	margin: 0 3%;
+	margin: 0px 3%;
 	padding: 20px;
 }
 
@@ -538,10 +560,6 @@ body,html {
 
 .offerTableWrapper {
 	overflow: hidden;
-}
-
-.offerStore {
-	text-align: left;
 }
 
 .selectedOfferRow {
@@ -581,11 +599,14 @@ body,html {
 }
 
 .collapseToggleButton {
-	border:6px double #DDD;
+	background: white;
+	box-shadow: 1px 1px 5px #AAA;
+	border: 1px #AAA solid;
+	padding: 3px;
+	margin: 7px 0;
 	color: black;
-	font-size: 9pt;
-	font-weight: bold;
-	width: 100%;
+	font-size: 10pt;
+	width: 98%;
 	cursor: pointer;
 }
 
@@ -627,6 +648,7 @@ body,html {
 	height: 100%;
 }
 
+
 .resultsBookDetails * {
 	font-weight: bold;
 	color: #555555;
@@ -646,8 +668,26 @@ body,html {
 	margin:10px 0;
 }
 
+.offerPanelLabel {
+	width: 50px;
+	display: inline-block;
+	padding: 10px;
+	background-color: white;
+	text-align: center;
+	border: 1px #CCC solid;
+	margin-right: 15px;
+	font-weight: bold;
+	margin-top: 27px;
+	font-size: 11pt;
+}
+
 .searchBox {
 	margin: 2% auto;
+}
+
+.searchButton {
+	margin-left: 5px;
+	margin-top: -5px;
 }
 
 .suggestionBox {
@@ -665,7 +705,6 @@ body,html {
 
 .resultsList {
 	margin: 75px 1% 0;
-	border-top: 4px solid #DDD;
 	padding: 0px 4%;
 	overflow: auto;
 	position: absolute;
@@ -676,8 +715,10 @@ body,html {
 }
 
 .resultsList>table {
-	border-bottom: 2px dotted #DDD;
-	padding: 10px;
+	margin: 20px 0;
+	padding: 20px;
+	background-color: #f7f7f7;
+	border: 1px #CCC solid;
 }
 
 

@@ -19,4 +19,6 @@ public class HistoryToken {
 	public static final String PARAM_OFFER_ID = "offer_id";
 	public static final String SELECT_SCHOOL = "tellusyourschool";
 	public static final String SCHOOL_PICKED_PREFIX = "youpicked";
+	
+	public static final String SEARCH_UNIFIED = "searchunified";
 }

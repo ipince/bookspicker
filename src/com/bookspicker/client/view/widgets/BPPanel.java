@@ -36,6 +36,11 @@ public class BPPanel extends Composite {
 		contentContainer.add(content);		
 	}
 	
+	public BPPanel() {
+		initWidget(uiBinder.createAndBindUi(this));
+		title.removeFromParent();
+	}
+
 	public FlowPanel getContentPanel(){
 		return contentContainer;
 	}

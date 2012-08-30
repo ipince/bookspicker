@@ -3,8 +3,10 @@ package com.bookspicker.client.service;
 import java.util.List;
 import java.util.Map;
 
+import com.bookspicker.shared.Book;
 import com.bookspicker.shared.Bundle;
 import com.bookspicker.shared.Item;
+import com.bookspicker.shared.Offer;
 import com.bookspicker.shared.School;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
@@ -13,6 +15,8 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 public interface QueryService extends RemoteService {
 
 	Bundle getOffersForBundle(School school, Bundle oldBundle, boolean includeLocal);
+	
+	List<Offer> getOffersForBook(School school, Book book, boolean includeLocal);
 
 	public List<Item> getBookInfo(School school, String query);
 	

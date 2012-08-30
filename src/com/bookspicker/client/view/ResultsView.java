@@ -56,6 +56,82 @@ public class ResultsView extends BPPanel {
 	public final BpSuggestBox autoCompleteBox;
 	public Image loadingIcon;
 	
+	
+	/** This constructor uses the SearchHandler of the new SearchPageUnified. 
+	 * This will be the default constructor after development of the new feature is finished.
+	 * @param isUnified
+	 */
+	public ResultsView(boolean isUnified) {
+		super();
+		this.setStylePrimaryName(STYLE.resultsView());
+		contentPanel = getContentPanel();
+		bookViewMap = new HashMap<Book, ResultsBookView>();
+		unPickables = new HashSet<Book>();
+		
+		com.bookspicker.client.view.SearchPageUnified.SearchHandler searchHandler = new com.bookspicker.client.view.SearchPageUnified.SearchHandler();
+		
+		searchTextBox = new SuggestionTextBox(classSuggestionString);
+		searchTextBox.setVisibleLength(40);
+
+		autoCompleteBox = new BpSuggestBox(BpOracle.getInstance(), searchTextBox);
+		autoCompleteBox.addSelectionHandler(new SelectionHandler<Suggestion>() {
+
+		    @Override
+		    public void onSelection(
+		            SelectionEvent<Suggestion> event) {
+		        if (event.getSelectedItem() instanceof BpOracleSuggestion) {
+		            BpOracleSuggestion bpSuggestion = (BpOracleSuggestion) event.getSelectedItem();
+		            autoCompleteBox.setSavedQuery(bpSuggestion.getQueryString());
+		        }
+		    }
+		});
+		
+		autoCompleteBox.addValueChangeHandler(new ValueChangeHandler<String>() {
+            
+            @Override
+            public void onValueChange(ValueChangeEvent<String> event) {
+                autoCompleteBox.cleanSavedQuery();
+            }
+        });
+		
+		searchTextBox.reset();
+		autoCompleteBox.setLimit(8);
+		autoCompleteBox.setWidth("25em");
+		autoCompleteBox.setAutoSelectEnabled(true);
+		
+		if (SearchPage.AUTO_COMPLETE) {
+			searchTextBox.addKeyPressHandler(searchHandler);
+			searchTextBox.addKeyDownHandler(searchHandler);
+			autoCompleteBox.addSelectionHandler(searchHandler);
+			searchBox.setWidget(0, 0, autoCompleteBox);
+		} else {
+			searchTextBox.addKeyPressHandler(searchHandler);
+			searchBox.setWidget(0, 0, searchTextBox);
+		}
+		searchBox.setStylePrimaryName(STYLE.searchBox());
+		
+		Image searchButton = new Image(Resources.INSTANCE.searchButton());
+		searchButton.setStylePrimaryName(STYLE.bpButton());
+		searchButton.addStyleName(STYLE.searchButton());
+		searchButton.addClickHandler(searchHandler);
+		searchBox.setWidget(0, 1, searchButton);
+		
+		loadingIcon = new Image(Resources.INSTANCE.loadingIconSmall());
+		loadingIcon.setStylePrimaryName(STYLE.loadingIcon());
+		loadingIcon.addStyleName(STYLE.loadingIconHidden());
+		searchBox.setWidget(0, 2, loadingIcon);
+		
+		SimplePanel searchWrapper = new SimplePanel();
+		searchWrapper.setStylePrimaryName(STYLE.searchBoxWrapper());
+		searchWrapper.setWidget(searchBox);
+		contentPanel.add(searchWrapper);
+		
+		results.setStylePrimaryName(STYLE.resultsList());
+
+		contentPanel.add(results);
+	}
+	
+	
 	public ResultsView() {
 		super("Search for your books and pick the ones you want to add to your cart!");
 		this.setStylePrimaryName(STYLE.resultsView());

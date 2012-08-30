@@ -8,23 +8,30 @@ import com.google.gwt.user.client.rpc.IsSerializable;
 public abstract class Offer implements IsSerializable, Comparable<Offer> { 
 	
 	public enum StoreName {
-		LOCAL("BooksPicker"),
-		AMAZON("Amazon.com"), 
-		AMAZON_MARKETPLACE("Amazon.com (Market Place)"),
-		HALF ("Half.com"),
-		ALIBRIS("Alibris.com"), 
-		ABE_BOOKS("AbeBooks.com"),
-		BOOK_EX("APO Book Exchange"),
-		THE_COOP("The COOP");
+		LOCAL("BooksPicker", true),
+		AMAZON("Amazon.com", false), 
+		AMAZON_MARKETPLACE("Amazon.com (Market Place)", false),
+		HALF ("Half.com", false),
+		ALIBRIS("Alibris.com", false), 
+		ABE_BOOKS("AbeBooks.com", false),
+		BOOK_EX("APO Book Exchange", true),
+		THE_COOP("The COOP", true);
 
 		String name;
+		boolean isLocal;
 
-		StoreName(String name) {
+		StoreName(String name, boolean _isLocal) {
 			this.name = name;
+			this.isLocal = _isLocal;
+			
 		}
 
 		public String getName() {
 			return name;
+		}
+		
+		public boolean isLocal() {
+			return isLocal;
 		}
 	}
 	

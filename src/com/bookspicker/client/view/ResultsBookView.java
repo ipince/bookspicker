@@ -1,19 +1,25 @@
 package com.bookspicker.client.view;
 
-import com.bookspicker.client.view.Resources;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.bookspicker.client.view.widgets.LoadingPanel;
+import com.bookspicker.client.view.widgets.ModernOfferTablePanel;
+import com.bookspicker.client.view.widgets.OfferTablePanel;
 import com.bookspicker.client.view.widgets.buttons.PickButton;
 import com.bookspicker.shared.Book;
 import com.bookspicker.shared.ClassBook;
-import com.bookspicker.shared.Item;
 import com.bookspicker.shared.ClassBook.Necessity;
 import com.bookspicker.shared.ClassBook.Source;
+import com.bookspicker.shared.Item;
+import com.bookspicker.shared.Offer;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.FlexTable;
-import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.HasVerticalAlignment;
+import com.google.gwt.user.client.ui.HasVerticalAlignment.VerticalAlignmentConstant;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.FlexTable.FlexCellFormatter;
 
 /**
  * View that displays a single Book that is 
@@ -23,15 +29,18 @@ import com.google.gwt.user.client.ui.FlexTable.FlexCellFormatter;
  * @author sinchan, Rodrigo Ipince
  *
  */
-public class ResultsBookView extends Grid {
+public class ResultsBookView extends FlexTable {
 	FlexCellFormatter detailsFormatter;
 	CellFormatter bookViewFormatter;
 	PickButton pickButton;
 	FlexTable bookDetails;
 	Item displayedItem;
+	ModernOfferTablePanel onlineOffersPanel;
+	ModernOfferTablePanel localOffersPanel;
+	LoadingPanel loadingPanel = new LoadingPanel("Looking for the best prices...");
 	
 	public ResultsBookView(ClassBook classBook) {
-		super(1,3);
+		super();
 		
 		displayedItem = classBook;
 		setBookDetails(classBook.getBook(), classBook.getNecessity(),
@@ -39,7 +48,7 @@ public class ResultsBookView extends Grid {
 	}
 	
 	public ResultsBookView(Book book) {
-		super(1,3);
+		super();
 		
 		displayedItem = book;
 		setBookDetails(book, null, null, null);
@@ -78,7 +87,7 @@ public class ResultsBookView extends Grid {
 		
 		this.setWidget(0, 1, bookDetails);
 		
-		pickButton = new PickButton(book);
+		pickButton = new PickButton();
 		this.setWidget(0, 2, pickButton);	
 		
 		bookDetails.setCellSpacing(0);
@@ -92,6 +101,47 @@ public class ResultsBookView extends Grid {
 		bookViewFormatter.setWidth(0, 1, "100%");
 		bookViewFormatter.setVerticalAlignment(0, 1, HasVerticalAlignment.ALIGN_TOP);
 		bookViewFormatter.setHorizontalAlignment(0, 0, HasHorizontalAlignment.ALIGN_CENTER);		
+	}
+	
+	public void showOffers(List<Offer> offers){
+		List<Offer> onlineOffers = new ArrayList<Offer>();
+		List<Offer> localOffers = new ArrayList<Offer>();
+		for(Offer offer:offers){
+			if(offer.getStoreName().isLocal()){
+				localOffers.add(offer);
+			} else {
+				onlineOffers.add(offer);
+			}
+		}
+		
+		FlexTable offersPanelTable = new FlexTable();
+		Label offersPanelLabel;
+		
+		if(onlineOffers.size() != 0){
+			offersPanelLabel = new Label("Online");
+			offersPanelLabel.setStylePrimaryName(Resources.INSTANCE.style().offerPanelLabel());
+			offersPanelTable.setWidget(0, 0, offersPanelLabel);
+			offersPanelTable.getCellFormatter().setVerticalAlignment(0, 0, HasVerticalAlignment.ALIGN_TOP);
+			offersPanelTable.getCellFormatter().setHorizontalAlignment(0, 0, HasHorizontalAlignment.ALIGN_RIGHT);
+			
+			onlineOffersPanel = new ModernOfferTablePanel(displayedItem.getBook(), onlineOffers.get(0), onlineOffers);
+			offersPanelTable.setWidget(0, 1, onlineOffersPanel);
+		}
+		
+		if(localOffers.size() != 0){
+			offersPanelLabel = new Label("Local");
+			offersPanelLabel.setStylePrimaryName(Resources.INSTANCE.style().offerPanelLabel());
+			offersPanelTable.setWidget(1, 0, offersPanelLabel);
+			offersPanelTable.getCellFormatter().setVerticalAlignment(1, 0, HasVerticalAlignment.ALIGN_TOP);
+			offersPanelTable.getCellFormatter().setHorizontalAlignment(1, 0, HasHorizontalAlignment.ALIGN_RIGHT);
+			
+			localOffersPanel = new ModernOfferTablePanel(displayedItem.getBook(), localOffers.get(0), localOffers);
+			offersPanelTable.setWidget(1, 1, localOffersPanel);
+		}
+		
+		offersPanelTable.getElement().getStyle().setWidth(100, Unit.PCT);
+		this.setWidget(1, 0, offersPanelTable);
+		this.getFlexCellFormatter().setColSpan(1, 0, 3);
 	}
 
 	private void setType(Necessity need, Source source) {
@@ -186,6 +236,20 @@ public class ResultsBookView extends Grid {
 
 	public void setPickable(boolean pickable) {
 		this.pickButton.setDisabled(!pickable);
+	}
+	
+	public Book getBook(){
+		return displayedItem.getBook();
+	}
+
+	public void showLoading() {
+		//TODO: made check prices button to hide prices.. or just remove the button..
+		this.setWidget(1, 0, loadingPanel);
+		this.getFlexCellFormatter().setColSpan(1, 0, 3);
+	}
+
+	public void reset() {
+		this.removeRow(1);
 	}
 	
 }

@@ -218,11 +218,15 @@ public interface Resources extends ClientBundle {
 
 		String resultsErrorMessage();
 
-		String offerStore();
+		String leftAligned();
 
 		String offerViewBookDetailImage();
 
 		String selectSchoolSearchBox();
+		
+		String offerPanelLabel();
+
+		String searchButton();
 	}
 
 	// CSS Styles for all of BP
@@ -275,6 +279,10 @@ public interface Resources extends ClientBundle {
 	@Source("com/bookspicker/client/view/images/pickButtonDisabled.png")
 	ImageResource pickButtonDisabled();
 
+	// Check Prices Button
+	@Source("com/bookspicker/client/view/images/checkPricesButton.png")
+	ImageResource checkPricesButton();
+		
 	// Buy Offer Button
 	@Source("com/bookspicker/client/view/images/buyOfferButton.png")
 	ImageResource buyOfferButton();
