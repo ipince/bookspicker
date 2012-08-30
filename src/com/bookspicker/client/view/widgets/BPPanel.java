@@ -38,7 +38,7 @@ public class BPPanel extends Composite {
 	
 	public BPPanel() {
 		initWidget(uiBinder.createAndBindUi(this));
-		title.removeFromParent();
+		title.getElement().getParentElement().removeFromParent();
 	}
 
 	public FlowPanel getContentPanel(){

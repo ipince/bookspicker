@@ -1,7 +1,6 @@
 package com.bookspicker.client.view;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -11,18 +10,13 @@ import com.bookspicker.client.service.QueryService;
 import com.bookspicker.client.service.QueryServiceAsync;
 import com.bookspicker.client.service.StatService;
 import com.bookspicker.client.service.StatServiceAsync;
-import com.bookspicker.client.view.widgets.OfferTablePanel;
-import com.bookspicker.client.view.widgets.buttons.BuyOfferButton;
-import com.bookspicker.client.view.widgets.buttons.FindBestBundleButton;
 import com.bookspicker.client.view.widgets.buttons.PickButton;
-import com.bookspicker.client.view.widgets.buttons.RemoveButton;
-import com.bookspicker.client.view.widgets.buttons.SelectOfferButton;
 import com.bookspicker.shared.Book;
-import com.bookspicker.shared.Bundle;
 import com.bookspicker.shared.ClassBook;
 import com.bookspicker.shared.Constants;
 import com.bookspicker.shared.Item;
 import com.bookspicker.shared.Offer;
+import com.bookspicker.shared.School;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -39,12 +33,11 @@ import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.DeferredCommand;
 import com.google.gwt.user.client.History;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.SimplePanel;
-import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.client.ui.SuggestOracle.Suggestion;
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * 
@@ -332,10 +325,23 @@ public class SearchPageUnified extends Composite implements HasHeader {
     						// Only display the class title for the first book!
     						if (!headerShown) {
     							if (cb.getSchoolClass().getTitle()!= null){
-    								resultsView.addInfoMessage("Books for " + cb.getSchoolClass().getCode() + " - " + cb.getSchoolClass().getTitle());
+    								String classCode = cb.getSchoolClass().getCode();
+    								String fullTitle = classCode + cb.getSchoolClass().getTitle() + " ";
+    								String linkToCatalog = "<a style='font-weight: normal' href='http://student.mit.edu/catalog/search.cgi?search='"+classCode+"&style=verbatim' target='_blank'>// MIT Subject Listing //</a>";
+    								if (cb.getSchoolClass().getSchool().equals(School.MIT)){
+    									resultsView.addInfoMessage("Books for " + fullTitle + linkToCatalog);
+    								} else {
+    									resultsView.addInfoMessage("Books for " + fullTitle);
+    								}
     							}
     							else {
-    								resultsView.addInfoMessage("Books for " + cb.getSchoolClass().getCode());
+    								String classCode = cb.getSchoolClass().getCode() + " ";
+    								String linkToCatalog = "<a style='font-weight: normal' href='http://student.mit.edu/catalog/search.cgi?search='"+classCode+"&style=verbatim' target='_blank'>// MIT Subject Listing //</a>";
+    								if (cb.getSchoolClass().getSchool().equals(School.MIT)){
+    									resultsView.addInfoMessage("Books for " + classCode + linkToCatalog);
+    								} else {
+    									resultsView.addInfoMessage("Books for " + classCode);
+    								}
     							}
 
     							headerShown = true;
