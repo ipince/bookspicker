@@ -169,12 +169,13 @@ public class ModernOfferTablePanel extends FlowPanel {
 			table.setText(row, 2, NumberUtil.getDisplayPrice(offer.getPrice()));
 			table.setText(row, 3, NumberUtil.getDisplayPrice(offer.getShipping()));
 			table.setText(row, 4, NumberUtil.getDisplayPrice(offer.getTotalPrice()));
+			cellFormatter.setStylePrimaryName(row, 4, style.selectedOfferPrice());
 
 			HorizontalPanel buttons = new HorizontalPanel();
 			buttons.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
 			buttons.setStylePrimaryName(style.offerButtonPanel());
 
-			buttons.add(new BuyOfferButton(book, offer));
+			buttons.add(new BuyOfferButton(book, offer, true));
 			table.setWidget(row, 5, buttons);
 		}
 	}

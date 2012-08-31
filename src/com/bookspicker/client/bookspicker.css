@@ -30,14 +30,11 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	font-size: 14px;
 	line-height: 20px;
 	color: #555;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
 	background-color: white;
 	border: 1px solid #AAA;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.20);
+	-moz-box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.20);
+	box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.20);
 }
 
 .leftAligned {
@@ -554,8 +551,9 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 
 .offersTable td {
-	padding: 2px 7px;
-	font-size: 10pt;
+	padding: 3px 10px;
+	font-size: 11pt;
+	font-weight: normal;
 }
 
 .offerTableWrapper {
@@ -567,9 +565,8 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 
 .selectedOfferPrice {
-	font-size: 18pt !important;
-	font-weight: normal;
-	background-color: #EEE;
+	font-weight: bold !important;
+	background-color: #ffed73;
 }
 
 
@@ -650,15 +647,15 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 
 
 .resultsBookDetails * {
-	font-weight: bold;
-	color: #555555;
-	font-size: 9pt;
+	color: #777;
+	font-size: 11pt;
 }
 
 .resultsBookTitle {
 	font-style: italic;
-	font-size: 11pt;
-	color: #000001;
+	font-size: 13pt;
+	color: #000;
+	font-weight: bold;
 }
 
 .resultsBookViewNote{
@@ -723,11 +720,12 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 
 
 .resultsInfoMessage{
-	margin: 10px -10px;
+	margin: 15px -10px;
 	padding: 5px 10px;
-	border-color:#DDD;
-	border-style:solid;
-	border-width:2px;
+	font-size: 11pt;
+	background-color: #ffed73;
+	color: black;
+	border: 1px #CCC solid;
 }
 
 .resultsErrorMessage {
@@ -741,8 +739,9 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 
 .resultsBookImage {
 	width: 100px;
-	padding-right: 7px;
+	margin-right: 7px;
 	max-height: 175px;
+	border: 1px #BBB solid;
 }
 
 
