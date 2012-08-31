@@ -167,21 +167,21 @@ public class BooksPicker implements EntryPoint, ValueChangeHandler<String> {
 			searchPageUnified.setState(params.get(HistoryToken.PARAM_QUERY),
 					params.get(HistoryToken.PARAM_BUNDLE), params.get(HistoryToken.PARAM_OFFERS), params.get(HistoryToken.DISPLAYED_QUERY));
 			RootLayoutPanel.get().add(searchPageUnified);
-		} else if (token.startsWith(HistoryToken.SEARCH)) {
-			Map<String, String> params = parseParams(token);
-			if (searchPage == null)
-				searchPage = new SearchPage();
-			searchPage.updateLoginContainer();
-			if(getSchool().equals(School.NONE)){
-				ResultsView.setGeneric(true);
-			}
-			else{
-				ResultsView.setGeneric(false);
-			}
-			current = searchPage;
-			searchPage.setState(params.get(HistoryToken.PARAM_QUERY),
-					params.get(HistoryToken.PARAM_BUNDLE), params.get(HistoryToken.PARAM_OFFERS), params.get(HistoryToken.DISPLAYED_QUERY));
-			RootLayoutPanel.get().add(searchPage);
+//		} else if (token.startsWith(HistoryToken.SEARCH)) {
+//			Map<String, String> params = parseParams(token);
+//			if (searchPage == null)
+//				searchPage = new SearchPage();
+//			searchPage.updateLoginContainer();
+//			if(getSchool().equals(School.NONE)){
+//				ResultsView.setGeneric(true);
+//			}
+//			else{
+//				ResultsView.setGeneric(false);
+//			}
+//			current = searchPage;
+//			searchPage.setState(params.get(HistoryToken.PARAM_QUERY),
+//					params.get(HistoryToken.PARAM_BUNDLE), params.get(HistoryToken.PARAM_OFFERS), params.get(HistoryToken.DISPLAYED_QUERY));
+//			RootLayoutPanel.get().add(searchPage);
 		} else if (token.equals(HistoryToken.SELLER)) {
 			if (sellerPage == null)
 				sellerPage = new SellerPage(userService, offerService, queryService, eventBus);
