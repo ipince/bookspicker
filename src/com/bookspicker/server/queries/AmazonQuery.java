@@ -33,7 +33,7 @@ public class AmazonQuery implements BookstoreQuery {
     private AmazonSignedRequestsHelper helper;
     private final HashMap<String, String> restRequest;
     private final HashMap<String, String> amazonNewOfferRequest = generateAmazonNewOfferRequest();
-    private final HashMap<String, String> amazonMerhcnatNewOfferRequest = generateMerchantNewOfferRequest();
+    private final HashMap<String, String> amazonMerchantNewOfferRequest = generateMerchantNewOfferRequest();
     private final HashMap<String, String> amazonUsedOfferRequest = generateMerchantUsedOfferRequest();
     private final HashMap<String, String> amazonOfferQuery = generateAmazonOfferQuery();
 
@@ -119,7 +119,7 @@ public class AmazonQuery implements BookstoreQuery {
         List<HashMap<String, String>> restCalls = new ArrayList<HashMap<String, String>>();
         switch (bundle.getCondition()) {
         case ALL:
-            restCalls.add(amazonMerhcnatNewOfferRequest);
+            restCalls.add(amazonMerchantNewOfferRequest);
             restCalls.add(amazonNewOfferRequest);
             restCalls.add(amazonUsedOfferRequest);
             break;
@@ -127,7 +127,7 @@ public class AmazonQuery implements BookstoreQuery {
             restCalls.add(amazonUsedOfferRequest);
             break;
         case NEW:
-            restCalls.add(amazonMerhcnatNewOfferRequest);
+            restCalls.add(amazonMerchantNewOfferRequest);
             restCalls.add(amazonNewOfferRequest);
             break;
         }
@@ -195,7 +195,7 @@ public class AmazonQuery implements BookstoreQuery {
 
     private HashMap<String, String> generateMerchantNewOfferRequest() {
         HashMap<String, String> request = generateAmazonNewOfferRequest();
-        request.put("MerchantId", "ALL");
+        request.put("MerchantId", "All");
         request.put("Condition", "New");
         return request;
     }
