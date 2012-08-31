@@ -19,3 +19,7 @@ gwt-UnitCache
 
 # Exclude GWT-dependent gwt-servlet.jar
 war/WEB-INF/lib/gwt-servlet.jar
+
+# Exclude .DS_Store
+.DS_Store
+src/.DS_Store
