@@ -556,6 +556,10 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	font-weight: normal;
 }
 
+.offersTable tr {
+	border-top: #BBB 1px solid;
+}
+
 .offerTableWrapper {
 	overflow: hidden;
 }
@@ -588,7 +592,13 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	font-size: 11pt;
 	font-weight: bold;
 	color: black;
-	text-decoration: underline;
+	background: white;
+	padding: 12px;
+	border: 1px #BBB solid;
+}
+
+.headerRow td:first-child {
+	min-width: 200px;
 }
 
 .offerRow {
@@ -596,19 +606,20 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 
 .collapseToggleButton {
-	background: white;
-	box-shadow: 1px 1px 5px #AAA;
-	border: 1px #AAA solid;
 	padding: 3px;
 	margin: 7px 0;
 	color: black;
 	font-size: 10pt;
 	width: 98%;
 	cursor: pointer;
+	text-align: center;
 }
 
 .collapseToggleButton div {
 	padding: 3px 5px;
+	font-size: 11pt;
+	color: blue;
+	text-decoration: underline;
 }
 
 .loadingPanel {
@@ -666,16 +677,13 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 
 .offerPanelLabel {
-	width: 50px;
-	display: inline-block;
+	margin: 15px -10px;
 	padding: 10px;
-	background-color: white;
-	text-align: center;
-	border: 1px #CCC solid;
-	margin-right: 15px;
-	font-weight: bold;
-	margin-top: 27px;
 	font-size: 11pt;
+	background-color: white;
+	color: black;
+	border: 1px #AAA solid;
+	font-weight: bold;
 }
 
 .searchBox {

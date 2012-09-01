@@ -117,26 +117,26 @@ public class ResultsBookView extends FlexTable {
 		FlexTable offersPanelTable = new FlexTable();
 		Label offersPanelLabel;
 		
-		if(onlineOffers.size() != 0){
-			offersPanelLabel = new Label("Online");
+		if(localOffers.size() != 0){
+			offersPanelLabel = new Label("Buy Locally");
 			offersPanelLabel.setStylePrimaryName(Resources.INSTANCE.style().offerPanelLabel());
 			offersPanelTable.setWidget(0, 0, offersPanelLabel);
-			offersPanelTable.getCellFormatter().setVerticalAlignment(0, 0, HasVerticalAlignment.ALIGN_TOP);
-			offersPanelTable.getCellFormatter().setHorizontalAlignment(0, 0, HasHorizontalAlignment.ALIGN_RIGHT);
-			
-			onlineOffersPanel = new ModernOfferTablePanel(displayedItem.getBook(), onlineOffers.get(0), onlineOffers);
-			offersPanelTable.setWidget(0, 1, onlineOffersPanel);
-		}
-		
-		if(localOffers.size() != 0){
-			offersPanelLabel = new Label("Local");
-			offersPanelLabel.setStylePrimaryName(Resources.INSTANCE.style().offerPanelLabel());
-			offersPanelTable.setWidget(1, 0, offersPanelLabel);
 			offersPanelTable.getCellFormatter().setVerticalAlignment(1, 0, HasVerticalAlignment.ALIGN_TOP);
-			offersPanelTable.getCellFormatter().setHorizontalAlignment(1, 0, HasHorizontalAlignment.ALIGN_RIGHT);
+			offersPanelTable.getCellFormatter().setHorizontalAlignment(1, 0, HasHorizontalAlignment.ALIGN_LEFT);
 			
 			localOffersPanel = new ModernOfferTablePanel(displayedItem.getBook(), localOffers.get(0), localOffers);
-			offersPanelTable.setWidget(1, 1, localOffersPanel);
+			offersPanelTable.setWidget(1, 0, localOffersPanel);
+		}
+		
+		if(onlineOffers.size() != 0){
+			offersPanelLabel = new Label("Buy Online");
+			offersPanelLabel.setStylePrimaryName(Resources.INSTANCE.style().offerPanelLabel());
+			offersPanelTable.setWidget(2, 0, offersPanelLabel);
+			offersPanelTable.getCellFormatter().setVerticalAlignment(0, 0, HasVerticalAlignment.ALIGN_TOP);
+			offersPanelTable.getCellFormatter().setHorizontalAlignment(0, 0, HasHorizontalAlignment.ALIGN_LEFT);
+			
+			onlineOffersPanel = new ModernOfferTablePanel(displayedItem.getBook(), onlineOffers.get(0), onlineOffers);
+			offersPanelTable.setWidget(3, 0, onlineOffersPanel);
 		}
 		
 		offersPanelTable.getElement().getStyle().setWidth(100, Unit.PCT);
