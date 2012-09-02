@@ -317,6 +317,8 @@ public class SearchPageUnified extends Composite implements HasHeader {
                     // Show ClassBooks first
                     ClassBook cb;
                     boolean headerShown = false;
+                    List<ClassBook> classbooksToAdd = new ArrayList<ClassBook>();
+                    boolean noBooksForClass = false;
                     for (Item item : result) {
                         //TODO (Sinchan) - can you please change the info message to an error message. See how it looks when
                         // you query for multiple books and one of the ISBN is broken. (e.g: 9780262033844, 6.003)
@@ -345,7 +347,17 @@ public class SearchPageUnified extends Composite implements HasHeader {
                                 }
                                 headerShown = true;
                             }
-                            resultsView.addClassBook(cb);
+                            // IF we see a classbook with hasBook == false => no books for this class
+                            if (!cb.getHasBook()) {
+                                noBooksForClass = true;
+                                String msg = "It appears no books are needed for your class";
+                                if (cb.getUrl() != null) {
+                                    msg += " (doublecheck <a style='font-weight: normal' href='"
+                                            + cb.getUrl() + "' target='_blank'> here</a>).";
+                                }
+                                resultsView.addInfoMessage(msg);
+                            }
+                            classbooksToAdd.add(cb);
                         } else if (item instanceof Book) {
                             // Only show header for regular title search if many queries were made (to distinguish)
                             if (multipleQueries && !headerShown) {
@@ -353,6 +365,11 @@ public class SearchPageUnified extends Composite implements HasHeader {
                                 headerShown = true;
                             }
                             resultsView.addBook((Book) item);
+                        }
+                    }
+                    if (!noBooksForClass) {
+                        for (ClassBook classbook : classbooksToAdd) {
+                            resultsView.addClassBook(classbook);
                         }
                     }
                 }
