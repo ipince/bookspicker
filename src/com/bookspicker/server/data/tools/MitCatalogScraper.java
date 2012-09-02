@@ -1,8 +1,6 @@
 package com.bookspicker.server.data.tools;
 
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +9,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Scanner;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -37,9 +34,10 @@ public class MitCatalogScraper {
     private static final String BOOK_URL_BASE = "http://sisapp.mit.edu/textbook/books.html?Term="
             + CATALOG_TERM_STR + "&Subject=";
 
-    private static final String CLASS_NAME_FILE = "mit-class-names.dat";
-    private static final String CLASS_URL_FILE = "mit-class-urls.dat";
+    public static final String CLASS_NAME_FILE = "mit-class-names.dat";
+    public static final String CLASS_URL_FILE = "mit-class-urls.dat";
     private static final String BOOK_LINKS_FILE = "mit-book-links.dat";
+    public static final String BOOK_LIST_FILE = "mit-book-lists.dat";
 
     private final Prowser prowser = new Prowser();
     private final Tab mainTab = prowser.createTab();
@@ -70,14 +68,14 @@ public class MitCatalogScraper {
     }
 
     private boolean loadClassInfoFromDisk() {
-        Map<String, String> loadedClassNames = readMapFromFile(CLASS_NAME_FILE);
+        Map<String, String> loadedClassNames = DataUtils.readMapFromFile(CLASS_NAME_FILE);
         if (loadedClassNames != null) {
             classNames.clear();
             classNames.putAll(loadedClassNames);
         } else {
             return false;
         }
-        Map<String, String> loadedClassUrls = readMapFromFile(CLASS_URL_FILE);
+        Map<String, String> loadedClassUrls = DataUtils.readMapFromFile(CLASS_URL_FILE);
         if (loadedClassUrls != null) {
             classUrls.clear();
             classUrls.putAll(loadedClassUrls);
@@ -88,7 +86,7 @@ public class MitCatalogScraper {
     }
 
     private boolean loadBookLinksFromDisk() {
-        Map<String, String> loadedBookLinks = readMapFromFile(BOOK_LINKS_FILE);
+        Map<String, String> loadedBookLinks = DataUtils.readMapFromFile(BOOK_LINKS_FILE);
         if (loadedBookLinks != null) {
             bookLinks.clear();
             bookLinks.putAll(loadedBookLinks);
@@ -131,8 +129,8 @@ public class MitCatalogScraper {
         }
         System.out.println("Got " + classNames.size() + " classes");
         System.out.println("Got " + courseUrls + " courses");
-        writeMapToFile(classNames, CLASS_NAME_FILE);
-        writeMapToFile(classUrls, CLASS_URL_FILE);
+        DataUtils.writeMapToFile(classNames, CLASS_NAME_FILE);
+        DataUtils.writeMapToFile(classUrls, CLASS_URL_FILE);
     }
 
     private String extractNameFromLabel(String label) {
@@ -212,7 +210,7 @@ public class MitCatalogScraper {
 
         }
         System.out.println("Replaced " + replaced + " book links.");
-        writeMapToFile(bookLinks, BOOK_LINKS_FILE);
+        DataUtils.writeMapToFile(bookLinks, BOOK_LINKS_FILE);
     }
 
     // visible for testing
@@ -321,8 +319,10 @@ public class MitCatalogScraper {
             }
         }
         System.out.println("Found " + materials.size() + " materials");
+        // TODO(rodrigo): extract to method.
         try {
-            String filename = "mit-book-lists.dat";
+            setFilePrefix();
+            String filename = BOOK_LIST_FILE;
             FileWriter fstream = new FileWriter(filePrefix + filename);
             BufferedWriter out = new BufferedWriter(fstream);
             int count = 0;
@@ -386,8 +386,6 @@ public class MitCatalogScraper {
         return Necessity.UNKNOWN;
     }
 
-    // I/O Methods
-
     private void setFilePrefix() {
         // If filePrefix is not established, get it
         if (filePrefix == null) {
@@ -401,74 +399,5 @@ public class MitCatalogScraper {
             System.out.println("Bad path. Please try again (or quit)");
             setFilePrefix();
         }
-    }
-
-    private List<String> readListFromFile(String filename) {
-        setFilePrefix();
-        List<String> list = new ArrayList<String>();
-        try {
-            Scanner scanner = new Scanner(new File(filePrefix + filename));
-            while (scanner.hasNext()) {
-                list.add(scanner.nextLine());
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
-        return list;
-    }
-
-    private void writeLinksToFile(List<String> links, String filename) {
-        setFilePrefix();
-        try {
-            // Create a stream for writing.
-            FileWriter fileWriter = new FileWriter(filePrefix + filename);
-            BufferedWriter writer = new BufferedWriter(fileWriter);
-            for (String link : links) {
-                writer.write(link);
-                writer.newLine();
-            }
-            writer.flush();
-            writer.close();
-            System.out.println("Wrote " + links.size() + " records to " + filename);
-        } catch (IOException e) {
-            System.err.println("Error writing file: " + e.getMessage());
-        }
-    }
-
-    private void writeMapToFile(Map<String, String> classes, String filename) {
-        setFilePrefix();
-        try {
-            // Create a stream for writing.
-            FileWriter fileWriter = new FileWriter(filePrefix + filename);
-            BufferedWriter writer = new BufferedWriter(fileWriter);
-            for (Entry<String, String> entry : classes.entrySet()) {
-                writer.write(entry.getKey());
-                writer.write(DataUtils.SEP);
-                writer.write(entry.getValue());
-                writer.newLine();
-            }
-            writer.flush();
-            writer.close();
-            System.out.println("Wrote " + classes.size() + " records to " + filename);
-        } catch (IOException e) {
-            System.err.println("Error writing file: " + e.getMessage());
-        }
-    }
-
-    private Map<String, String> readMapFromFile(String filename) {
-        setFilePrefix();
-        Map<String, String> map = new HashMap<String, String>();
-        try {
-            Scanner scanner = new Scanner(new File(filePrefix + filename));
-            while (scanner.hasNext()) {
-                String[] keyVal = scanner.nextLine().split("\\" + DataUtils.SEP);
-                map.put(keyVal[0], keyVal[1]);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
-        return map;
     }
 }

@@ -135,7 +135,8 @@ public class QueryServiceImpl extends RemoteServiceServlet implements QueryServi
         			}
         		}
         	};
-        	HelperThreads.execute(runnable);
+//        	HelperThreads.execute(runnable);
+        	runnable.run();
         }
         int counter = 0; 
         while (queryCounter.getCount() != 0) {
@@ -221,7 +222,7 @@ public class QueryServiceImpl extends RemoteServiceServlet implements QueryServi
 								"This book was added to this class by a " +
 								"student selling the book! Therefore we cannot guarantee " +
 								"that the book is actually needed for the class, though " +
-								"it probably is (if you trust your fellow students!)"));
+								"it probably is (if you trust your fellow students!)", null, true));
 						copy.add(offer.getBook()); // add so we don't add again in case of repetition
 					}
 				}

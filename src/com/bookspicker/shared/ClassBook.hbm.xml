@@ -15,6 +15,8 @@
         <property name="necessity" not-null="true" />
         <property name="notes" not-null="true" />
         <property name="source" />
+        <property name="url" />
+        <property name="hasBook" not-null="true" />
 
 		<many-to-one name="book" column="book_id" not-null="true" lazy="false"/>
 		<many-to-one name="schoolClass" column="class_id" not-null="true"

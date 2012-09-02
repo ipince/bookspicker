@@ -24,6 +24,7 @@
 		<property name="jointSubjects" />
 		<property name="lastActivityDate" />
 		<property name="warehouseLoadDate" />
+		<property name="classInfoUrl" />
 		
 		<bag name="books" cascade="all" lazy="false" >
 			<key column="class_id" not-null="true"/>

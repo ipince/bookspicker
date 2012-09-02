@@ -14,59 +14,84 @@ import com.bookspicker.shared.Book;
  *
  */
 public class BookManager {
-	
-	private static final BookManager MANAGER = new BookManager();
-	
-	private BookManager() {}
-	
-	public static BookManager getManager() {
-		return MANAGER;
-	}
 
-	public List listBooks() {
-    	Session session = HibernateUtil.getSessionFactory().openSession();
+    private static final BookManager MANAGER = new BookManager();
+
+    private BookManager() {}
+
+    public static BookManager getManager() {
+        return MANAGER;
+    }
+
+    public List listBooks() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         List result = session.createQuery("from Book").list();
         session.getTransaction().commit();
         return result;
-	}
-	
-	public Book getBookByIsbn(String isbn) {
-    	Session session = HibernateUtil.getSessionFactory().openSession();
+    }
+
+    public Book getBookByIsbn(String isbn) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         Query q;
         if (isbn.length() == 10) {
-        	q = session.createQuery("from Book where isbn='" + isbn + "'");
+            q = session.createQuery("from Book where isbn='" + isbn + "'");
         } else if (isbn.length() == 13) {
-        	q = session.createQuery("from Book where ean='" + isbn + "'");
+            q = session.createQuery("from Book where ean='" + isbn + "'");
         } else {
-        	// Invalid isbn
-        	return null;
+            // Invalid isbn
+            session.close();
+            return null;
         }
         List book = q.list();
         session.getTransaction().commit();
-        session.close();
-        
+        // session.close();
+
         if (!book.isEmpty()) {
-        	assert book.size() == 1; // TODO: enforce
-        	
-        	return (Book) book.get(0);
+            assert book.size() == 1; // TODO: enforce
+
+            return (Book) book.get(0);
         }
-		
-		return null;
-	}
-	
-	public Book saveBook(Book book) {
-		Session session = HibernateUtil.getSessionFactory().openSession();
+
+        return null;
+    }
+
+    public Book getBookByIsbn(String isbn, Session session) {
+        if (isbn.length() != 10 && isbn.length() != 13) {
+            return null;
+        }
+        session.beginTransaction();
+        Query q;
+        if (isbn.length() == 10) {
+            q = session.createQuery("from Book where isbn='" + isbn + "'");
+        } else { // 13
+            q = session.createQuery("from Book where ean='" + isbn + "'");
+        }
+        List book = q.list();
+        session.getTransaction().commit();
+        // session.close();
+
+        if (!book.isEmpty()) {
+            assert book.size() == 1; // TODO: enforce
+
+            return (Book) book.get(0);
+        }
+
+        return null;
+    }
+
+    public Book saveBook(Book book) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.save(book);
         session.getTransaction().commit();
         session.close();
         return book;
-	}
+    }
 
-	// TODO: remove
-	public Book createAndStoreBook(String isbn, String title) {
+    // TODO: remove
+    public Book createAndStoreBook(String isbn, String title) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
@@ -78,8 +103,9 @@ public class BookManager {
         session.save(book);
 
         session.getTransaction().commit();
-        
+        session.close();
+
         return book;
     }
-	
+
 }

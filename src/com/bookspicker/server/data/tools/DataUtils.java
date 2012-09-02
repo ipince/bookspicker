@@ -1,13 +1,21 @@
 package com.bookspicker.server.data.tools;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
+import java.util.Scanner;
 
 import com.bookspicker.shared.Book;
 import com.bookspicker.shared.School;
@@ -182,6 +190,61 @@ public class DataUtils {
         }
     }
 
+    // I/O methods
+
+    private static String filePrefix = null;
+
+    public static void setFilePrefix() {
+        // If filePrefix is not established, get it
+        if (filePrefix == null) {
+            School school = DataUtils.getSchoolFromUser();
+            Term term = DataUtils.getTermFromUser();
+            filePrefix = DataUtils.DATA_PATH + school.toString() + DataUtils.DIR_SEP
+                    + term.toString() + DataUtils.DIR_SEP + DataUtils.FILE_DATE_PREFIX
+                    + DataUtils.DIR_SEP + DataUtils.MAT_RAW_PATH;
+        }
+        if (!DataUtils.checkPathAndFilePrefix(filePrefix)) {
+            System.out.println("Bad path. Please try again (or quit)");
+            setFilePrefix();
+        }
+    }
+
+    public static void writeMapToFile(Map<String, String> classes, String filename) {
+        setFilePrefix();
+        try {
+            // Create a stream for writing.
+            FileWriter fileWriter = new FileWriter(filePrefix + filename);
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+            for (Entry<String, String> entry : classes.entrySet()) {
+                writer.write(entry.getKey());
+                writer.write(DataUtils.SEP);
+                writer.write(entry.getValue());
+                writer.newLine();
+            }
+            writer.flush();
+            writer.close();
+            System.out.println("Wrote " + classes.size() + " records to " + filename);
+        } catch (IOException e) {
+            System.err.println("Error writing file: " + e.getMessage());
+        }
+    }
+
+    public static Map<String, String> readMapFromFile(String filename) {
+        setFilePrefix();
+        Map<String, String> map = new HashMap<String, String>();
+        try {
+            Scanner scanner = new Scanner(new File(filePrefix + filename));
+            while (scanner.hasNext()) {
+                String[] keyVal = scanner.nextLine().split("\\" + DataUtils.SEP);
+                map.put(keyVal[0], keyVal[1]);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return map;
+    }
+
 
     @SuppressWarnings("serial")
     public static class ClassBean implements Serializable {
@@ -261,6 +324,7 @@ public class DataUtils {
         public String newPrice;
         public String usedPrice;
         public String url;
+        public String isbn;
 
         public BookMat(Book book, Material material) {
             this.section = material.section;
@@ -269,6 +333,7 @@ public class DataUtils {
             this.newPrice = material.newPrice;
             this.usedPrice = material.usedPrice;
             this.url = material.url;
+            this.isbn = material.isbn;
         }
 
         public boolean similar(BookMat other) {
