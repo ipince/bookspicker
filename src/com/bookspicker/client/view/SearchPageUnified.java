@@ -440,6 +440,7 @@ public class SearchPageUnified extends Composite implements HasHeader {
             resultsView.loadingIcon.addStyleName(Resources.INSTANCE.style().loadingIconHidden());
             // Do nothing....
             GWT.log("There was an error retrieving the books", null);
+            resultsView.autoCompleteBox.cleanSavedQuery();
 
         }
 
@@ -448,6 +449,7 @@ public class SearchPageUnified extends Composite implements HasHeader {
             resultsView.clearResults();
             populateSearchResults(result, _displayedQuery);
             resultsView.loadingIcon.addStyleName(Resources.INSTANCE.style().loadingIconHidden());
+            resultsView.autoCompleteBox.cleanSavedQuery();
         }
     }
 
