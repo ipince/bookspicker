@@ -592,9 +592,9 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	font-size: 11pt;
 	font-weight: bold;
 	color: black;
-	background: white;
+	background: #EEE;
 	padding: 12px;
-	border: 1px #BBB solid;
+	border: 1px #DDD solid;
 }
 
 .headerRow td:first-child {
@@ -677,12 +677,9 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 
 .offerPanelLabel {
-	margin: 15px -10px;
 	padding: 10px;
-	font-size: 11pt;
-	background-color: white;
+	font-size: 13pt;
 	color: black;
-	border: 1px #AAA solid;
 	font-weight: bold;
 }
 
