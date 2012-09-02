@@ -36,7 +36,7 @@ CREATE TABLE `classbooks` (
   KEY `FKEEDAA432A30BF680` (`book_id`),
   CONSTRAINT `FKEEDAA432A30BF680` FOREIGN KEY (`book_id`) REFERENCES `books` (`book_id`),
   CONSTRAINT `FKEEDAA43294590380` FOREIGN KEY (`class_id`) REFERENCES `classes` (`class_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
