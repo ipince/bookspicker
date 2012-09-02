@@ -26,7 +26,7 @@ public class Navigation extends Grid {
 
 		home = new NavigationButton(style.navHome(), style.navHomeSelected(),
 				HistoryToken.HOME);
-		this.setWidget(0, 0, home);
+//		this.setWidget(0, 0, home);
 
 		search = new NavigationButton(style.navSearch(), style
 				.navSearchSelected(),

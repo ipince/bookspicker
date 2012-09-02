@@ -140,19 +140,19 @@ public class BooksPicker implements EntryPoint, ValueChangeHandler<String> {
 		} else if ((getSchool().equals("") && !(token.equals(HistoryToken.FAQ) || token.equals(HistoryToken.ABOUT))) || (getSchool().equals(School.NONE)&& token.equals(HistoryToken.SELLER))) {
 			History.newItem(HistoryToken.SELECT_SCHOOL);
 			preSchoolSelectionToken = token;
-		} else if (token.equals(HistoryToken.HOME) || token.isEmpty()) {
-			if (homePage == null)
-				homePage = new InformationPage(Page.HOME);
-			homePage.updateLoginContainer();
-			if(getSchool().equals(School.NONE)){
-				HomePageContent.setGeneric(true);
-			}
-			else{
-				HomePageContent.setGeneric(false);
-			}
-			current = homePage;
-			RootLayoutPanel.get().add(homePage);
-		} else if (token.startsWith(HistoryToken.SEARCH_UNIFIED)) {
+//		} else if (token.equals(HistoryToken.HOME) || token.isEmpty()) {
+//			if (homePage == null)
+//				homePage = new InformationPage(Page.HOME);
+//			homePage.updateLoginContainer();
+//			if(getSchool().equals(School.NONE)){
+//				HomePageContent.setGeneric(true);
+//			}
+//			else{
+//				HomePageContent.setGeneric(false);
+//			}
+//			current = homePage;
+//			RootLayoutPanel.get().add(homePage);
+		} else if (token.startsWith(HistoryToken.SEARCH_UNIFIED) || token.equals(HistoryToken.HOME) || token.isEmpty()) {
 			Map<String, String> params = parseParams(token);
 			if (searchPageUnified == null)
 				searchPageUnified = new SearchPageUnified();

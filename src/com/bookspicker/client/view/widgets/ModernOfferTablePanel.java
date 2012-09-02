@@ -37,8 +37,8 @@ public class ModernOfferTablePanel extends FlowPanel {
 	FocusPanel buttonWrapper;
 
 	Style style = Resources.INSTANCE.style();
-	private final String EXPAND_TEXT = "⇊ Show More Offers ⇊";
-	private final String COLLAPSE_TEXT = "⇈ Show Fewer Offers ⇈";
+	private final String EXPAND_TEXT = "Show More Offers";
+	private final String COLLAPSE_TEXT = "Show Fewer Offers";
 	Label expandCollapseLabel;
 	
 	private Book book;
