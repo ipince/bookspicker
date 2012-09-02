@@ -26,7 +26,7 @@ public class ClassBook implements Item, IsSerializable {
 
         public String getDescription() {
             switch (this) {
-            case MIT: return " (according to your school)";
+            case MIT: return " (according to the catalog)";
             case THE_COOP: return " (according to your bookstore)";
             case LOCAL: return " (according to a submission to our local marketplace (unverified))";
             case MANUAL: return " (according to a manual submission to BooksPicker (unverified))";

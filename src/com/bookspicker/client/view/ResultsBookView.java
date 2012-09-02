@@ -3,9 +3,10 @@ package com.bookspicker.client.view;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import com.bookspicker.client.view.widgets.LoadingPanel;
 import com.bookspicker.client.view.widgets.ModernOfferTablePanel;
-import com.bookspicker.client.view.widgets.OfferTablePanel;
 import com.bookspicker.client.view.widgets.buttons.PickButton;
 import com.bookspicker.shared.Book;
 import com.bookspicker.shared.ClassBook;
@@ -15,9 +16,9 @@ import com.bookspicker.shared.Item;
 import com.bookspicker.shared.Offer;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.HasVerticalAlignment;
-import com.google.gwt.user.client.ui.HasVerticalAlignment.VerticalAlignmentConstant;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 
@@ -44,18 +45,18 @@ public class ResultsBookView extends FlexTable {
 		
 		displayedItem = classBook;
 		setBookDetails(classBook.getBook(), classBook.getNecessity(),
-				classBook.getSource(), classBook.getNotes());
+				classBook.getSource(), classBook.getNotes(), classBook.getUrl());
 	}
 	
 	public ResultsBookView(Book book) {
 		super();
 		
 		displayedItem = book;
-		setBookDetails(book, null, null, null);
+		setBookDetails(book, null, null, null, null);
 	}
 	
 	private void setBookDetails(Book book, Necessity need,
-			Source source, String notes) {
+			Source source, String notes, @Nullable String sourceUrl) {
 		bookDetails = new FlexTable();
 		bookDetails.setStylePrimaryName(Resources.INSTANCE.style().resultsBookDetails());
 
@@ -70,7 +71,7 @@ public class ResultsBookView extends FlexTable {
 			setEdition(book.getEdition());
 		}
 		if (need != null) {
-			setType(need, source);
+			setType(need, source, sourceUrl);
 		}
 		
 //		if (source != null) {
@@ -144,27 +145,34 @@ public class ResultsBookView extends FlexTable {
 		this.getFlexCellFormatter().setColSpan(1, 0, 3);
 	}
 
-	private void setType(Necessity need, Source source) {
+	private void setType(Necessity need, Source source, @Nullable String url) {
 		// TODO (sinchan): should probably change
 		// this to setNecessity => need to change style names
 		// as well.
-		String type = "Necessity Unknown";
+	    String necessityContent = "Necessity Unknown";
 		switch (need) {
 			case REQUIRED:
-				type = "Required" + source.getDescription();
+			    necessityContent = "Required";
 				break;
 			case RECOMMENDED:
-				type = "Recommended" + source.getDescription();;
+			    necessityContent = "Recommended";
 				break;
 			case RESERVE_ONLY:
-				type = "Reserve Only" + source.getDescription();;
+			    necessityContent = "Reserve Only";
 				break;
-			case UNKNOWN:
-				type = "Necessity Unknown";
+			default:
+			    necessityContent = "Necessity Unknown";
 		}
-		Label typeLabel = new Label(type);
-		typeLabel.setStylePrimaryName("bookType");
-		bookDetails.setWidget(4, 0, typeLabel);
+		if (source.equals(Source.MIT) && url != null) {
+		    String linkToCatalog = "<a style='font-weight: normal' href='"
+                    + url + "' target='_blank'>catalog</a>";
+		    necessityContent += " (according to the " + linkToCatalog + ")";
+		} else {
+		    necessityContent += source.getDescription();
+		}
+		HTML html = new HTML(necessityContent);
+		html.setStylePrimaryName("bookType");
+		bookDetails.setWidget(4, 0, html);
 	}
 
 	private void setEdition(Integer edition) {
