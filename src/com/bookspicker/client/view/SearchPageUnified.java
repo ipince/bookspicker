@@ -305,10 +305,12 @@ public class SearchPageUnified extends Composite implements HasHeader {
             } else {
                 if (result.isEmpty()) {
                     // No books found -> display differently depending on query type
-                    if (query.matches(Constants.CLASS_REGEX_STR)) {
+                    if (query.matches(Constants.CLASS_REGEX_STR)
+                            || query.matches(Constants.DB_ID_STR)) {
                         resultsView.addInfoMessage(NO_BOOKS_FOUND_MSG + " for " + displayedQuery + "." +
-                                "<br /><br />This class probably requires no books, but we cannot guarantee it. Here's the <a href='http://course.mit.edu/" + displayedQuery + "' target='_blank'>class website</a> in case you wish to double-check." +
-                                "<br /><br />Let us know if we're missing any of " + displayedQuery + "'s books through the feedback tab on the right.");
+                                "<br /><br />This class probably requires no books, but we cannot guarantee it. " +
+                                "You might need to double-check on your own. Sorry! :(");
+                        //                                "<br /><br />Let us know if we're missing any of " + displayedQuery + "'s books through the feedback tab on the right.");
                     } else {
                         resultsView.addInfoMessage("<br />"+NO_BOOKS_FOUND_MSG + " matching \"" + displayedQuery + "\"");
                     }
