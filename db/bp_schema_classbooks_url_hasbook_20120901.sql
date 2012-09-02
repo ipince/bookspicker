@@ -28,7 +28,7 @@ CREATE TABLE `classbooks` (
   `notes` varchar(255) NOT NULL,
   `source` tinyblob,
   `url` varchar(255) DEFAULT NULL,
-  `hasBook` bit(1) NOT NULL,
+  `hasBook` bit(1) NOT NULL DEFAULT 1,
   `book_id` bigint(20) NOT NULL,
   `class_id` bigint(20) NOT NULL,
   PRIMARY KEY (`classbook_id`),
