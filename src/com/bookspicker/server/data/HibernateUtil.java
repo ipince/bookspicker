@@ -11,7 +11,7 @@ public class HibernateUtil {
         PROD, TEST, WIPE;
     }
 
-    private static final Config CONFIG = Config.WIPE;
+    private static final Config CONFIG = Config.PROD;
     public static boolean testDb = false;
     public static boolean liveTest = false;
     public static boolean wipeData = false;
