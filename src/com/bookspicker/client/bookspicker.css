@@ -29,7 +29,6 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	margin-bottom: 9px;
 	font-size: 14px;
 	line-height: 20px;
-	color: #555;
 	background-color: white;
 	border: 1px solid #AAA;
 	-webkit-box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.20);
@@ -288,8 +287,8 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	bottom: 0;
 	left: 0;
 	right: 0;
-	border-top: 10px solid #ffed73;
-	border-bottom: 10px solid #ffed73;
+	border-radius: 5px;
+	
 	-webkit-box-shadow: 0px 0px 6px #666;
 	-moz-box-shadow: 0px 0px 6px #666;
 	box-shadow: 0px 0px 6px #666;
