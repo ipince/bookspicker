@@ -51,7 +51,7 @@ public class ResultsView extends BPPanel {
 	
 	FlowPanel contentPanel;
 	public static SuggestionTextBox searchTextBox;
-	private final static String classSuggestionString = "Search by class, title, keyword, or ISBN...";
+	private final static String classSuggestionString = "Search by course, title, keyword, or ISBN...";
 	private final static String genericSuggestionString = "Search by title, keyword, or ISBN...";
 	public final BpSuggestBox autoCompleteBox;
 	public Image loadingIcon;

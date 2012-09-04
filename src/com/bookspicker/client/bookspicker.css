@@ -701,7 +701,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 
 .suggestionBox {
-	color: grey;
+	color: #000;
 	font: 11pt;
 }
 

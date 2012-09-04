@@ -47,7 +47,7 @@ public class HomePageContent extends Composite {
 
 	private Grid searchBox = new Grid(1, 3);
 	private static SuggestionTextBox searchInput;
-	private final static String classSuggestionString = "Search by class, title, keyword, or ISBN...";
+	private final static String classSuggestionString = "Search by course, title, keyword, or ISBN...";
 	private final static String genericSuggestionString = "Search by title, keyword, or ISBN...";
 	private BpSuggestBox autoCompleteInput;
 	public Image loadingIcon;
