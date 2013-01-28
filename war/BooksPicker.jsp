@@ -34,9 +34,9 @@
     <script type="text/javascript" language="javascript" src="bookspicker/bookspicker.nocache.js"></script>
 
 	<%
-    	// Only add Google Analytics script in production version
+    	// Only enable google analytics on production
 		if (!local) {
-  	%>
+	%>
 	<!-- Start Google Analytics code -->
 	<script type="text/javascript">
 
@@ -52,9 +52,8 @@
 	</script>
 	<!-- End of Google Analytics code -->
 	<%
-    	}
+		}
   	%>
-
 </head>
 
   <body>

@@ -137,5 +137,12 @@ public abstract class Offer implements IsSerializable, Comparable<Offer> {
 		}
 
 	}
+	
+	@Override
+	public String toString() {
+		return "Store: " + this.storeName + 
+				" Seller: " + this.sellerName + 
+				" Price: " + this.getTotalPrice();
+	}
 
 }

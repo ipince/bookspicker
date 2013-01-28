@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.bookspicker.client.BooksPicker;
 import com.bookspicker.client.HistoryToken;
+import com.bookspicker.client.event.Analytics;
 import com.bookspicker.client.service.QueryService;
 import com.bookspicker.client.service.QueryServiceAsync;
 import com.bookspicker.client.service.StatService;
@@ -153,6 +154,7 @@ public class SearchPageUnified extends Composite implements HasHeader {
         public void onClick(ClickEvent event) {
             PickButton button = (PickButton) event.getSource();
             if (button.isEnabled()) {
+            	Analytics.trackShowOffersButton(((ResultsBookView)button.getParent()).getBook());
                 displayOffers((ResultsBookView) button.getParent());
                 setHistoryToken(true);
             }
@@ -193,6 +195,7 @@ public class SearchPageUnified extends Composite implements HasHeader {
 
         private void findBooks(String query, final String displayedQuery) {
             // Set history stuff
+        	Analytics.trackSearchFromSearchPage(query);
             currentQuery = query;
             setHistoryToken(true);
 
@@ -221,6 +224,7 @@ public class SearchPageUnified extends Composite implements HasHeader {
             Offer clickedOffer = button.getOffer();
             List<Offer> competingOffers = bookOffers.get(book);
 
+            Analytics.trackBuyAction(clickedOffer, book);
             // Save stat
             statService.logBuyClick(book.getIsbn(),
                     clickedOffer, competingOffers,

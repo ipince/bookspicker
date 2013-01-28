@@ -2,6 +2,7 @@ package com.bookspicker.client.view.widgets;
 
 import java.util.List;
 
+import com.bookspicker.client.event.Analytics;
 import com.bookspicker.client.view.Resources;
 import com.bookspicker.client.view.Resources.Style;
 import com.bookspicker.client.view.widgets.buttons.BuyOfferButton;
@@ -79,6 +80,7 @@ public class ModernOfferTablePanel extends FlowPanel {
 				@Override
 				public void onClick(ClickEvent event) {
 					if (collapsed) {
+						Analytics.trackExpandOffersButton(offers.size(), ModernOfferTablePanel.this.book);
 						expandCollapseLabel.setText(COLLAPSE_TEXT);
 						remove(collapsedOffersTable);
 						remove(buttonWrapper);
@@ -86,6 +88,7 @@ public class ModernOfferTablePanel extends FlowPanel {
 						add(buttonWrapper);
 						collapsed = false;
 					} else {
+						Analytics.trackCollapsedOffersButton(offers.size(), ModernOfferTablePanel.this.book);
 						expandCollapseLabel.setText(EXPAND_TEXT);
 						remove(expandedOffersTable);
 						remove(buttonWrapper);

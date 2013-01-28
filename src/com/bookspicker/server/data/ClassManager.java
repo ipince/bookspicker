@@ -26,6 +26,7 @@ public class ClassManager {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         List<SchoolClass> result = session.createQuery("from SchoolClass").list();
+        System.out.println("listClasses is being called.");
         session.getTransaction().commit();
         session.close();
         return result;

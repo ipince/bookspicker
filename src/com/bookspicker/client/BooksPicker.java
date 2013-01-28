@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.bookspicker.client.event.Analytics;
 import com.bookspicker.client.event.GotUserEvent;
 import com.bookspicker.client.event.GotUserEventHandler;
 import com.bookspicker.client.service.LocalOfferService;
@@ -164,6 +165,9 @@ public class BooksPicker implements EntryPoint, ValueChangeHandler<String> {
 				ResultsView.setGeneric(false);
 			}
 			current = searchPageUnified;
+			if (token.startsWith(HistoryToken.SEARCH_UNIFIED)) {
+				Analytics.trackSearchFromURL(token);
+			}
 			searchPageUnified.setState(params.get(HistoryToken.PARAM_QUERY),
 					params.get(HistoryToken.PARAM_BUNDLE), params.get(HistoryToken.PARAM_OFFERS), params.get(HistoryToken.DISPLAYED_QUERY));
 			RootLayoutPanel.get().add(searchPageUnified);
