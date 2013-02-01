@@ -9,6 +9,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -53,7 +55,7 @@ public class DataUtils {
      * to add the data of the fetch/scrape here, so that you know
      * which data is old and which is new.
      */
-    public static final String FILE_DATE_PREFIX = "2012-08-28";
+    public static final String FILE_DATE_PREFIX = "2013-02-01";
 
     public static final String SEP = "|";
     public static final String PARTS_SEP = ">";
@@ -215,10 +217,12 @@ public class DataUtils {
             // Create a stream for writing.
             FileWriter fileWriter = new FileWriter(filePrefix + filename);
             BufferedWriter writer = new BufferedWriter(fileWriter);
-            for (Entry<String, String> entry : classes.entrySet()) {
-                writer.write(entry.getKey());
+            List<String> keys = new ArrayList<String>(classes.keySet());
+            Collections.sort(keys);
+            for (String key : keys) {
+                writer.write(key);
                 writer.write(DataUtils.SEP);
-                writer.write(entry.getValue());
+                writer.write(classes.get(key));
                 writer.newLine();
             }
             writer.flush();

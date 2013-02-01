@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -28,7 +29,7 @@ import com.zenkey.net.prowser.Tab;
 
 public class MitCatalogScraper {
 
-    private static final String CATALOG_TERM_STR = "2013FA";
+    private static final String CATALOG_TERM_STR = "2013SP";
     private static final String CATALOG_BASE = "http://student.mit.edu/catalog/";
     private static final String CATALOG_SEARCH_URL = CATALOG_BASE + "search.cgi?search=&style=verbatim&when=C&days_offered=*&start_time=*&duration=*&total_units=*";
     private static final String BOOK_URL_BASE = "http://sisapp.mit.edu/textbook/books.html?Term="
@@ -56,7 +57,7 @@ public class MitCatalogScraper {
     public static void main(String[] args) {
         MitCatalogScraper scraper = new MitCatalogScraper();
 
-        boolean refresh = false;
+        boolean refresh = true;
 
         if (refresh || !scraper.loadClassInfoFromDisk()) {
             scraper.updateClassInfoAndCourseUrls();
@@ -106,6 +107,7 @@ public class MitCatalogScraper {
         try {
             TagNode node = cleaner.clean(results);
             Object[] anchors = node.evaluateXPath("/body/div[2]/blockquote/dl/dt/a");
+            System.out.println("Found " + anchors.length + " anchors");
             for (Object obj : anchors) {
                 if (obj instanceof TagNode) {
                     TagNode anchor = (TagNode) obj;
@@ -116,9 +118,13 @@ public class MitCatalogScraper {
                     String href = anchor.getAttributeByName("href");
                     String code = href.substring(href.lastIndexOf("#")+1);
                     String courseUrl = href.substring(0, href.lastIndexOf("#"));
-                    String classUrl = CATALOG_BASE + href;
+                    if (classNames.containsKey(code)) {
+                    	System.err.println("Class names map already contains " + code + 
+                    			" with name: " + classNames.get(code) + 
+                    			". Replacing with: " + name);
+                    }
                     classNames.put(code, name);
-                    classUrls.put(code, classUrl);
+                    classUrls.put(code, CATALOG_BASE + href);
                     courseUrls.add(CATALOG_BASE + courseUrl);
                 }
             }
@@ -134,20 +140,19 @@ public class MitCatalogScraper {
     }
 
     private String extractNameFromLabel(String label) {
+        // Label is of form
+        // "<code>[, <code>][, <code>] <Title> [(New)|(<Joint-Class-Code>)]"
+    	// But the last part, [(New)|(<Joint>)] appears after a <br/>, so it is
+    	// not included in the label here.
+
         String[] parts = label.split(" ");
         String name = "";
-        for (int i = 0; i < parts.length; i++) {
-            // Skip the first chunk
-            if (i == 0) {
-                continue;
-            }
-            // Skip second part iff its first three chars == first three chars
-            // of first part
-            if (i == 1 && parts[i].length() >= 3 && parts[0].length() >= 3
-                    && parts[i].startsWith(parts[0].substring(0, 3))) {
-                System.err.println("Skipping up to\"" + parts[i] + "\" from \"" + label + "\"");
-                continue;
-            }
+        assert parts.length > 0;
+        for (int i = 1; i < parts.length; i++) {
+        	if (name.isEmpty() && parts[i].length() < 10 && parts[i].matches("[\\d\\(-].*")) {
+        		System.err.println("Skipping " + parts[i] + " from " + label);
+        		continue;
+        	}
             name += parts[i] + " ";
         }
         return name.trim();
@@ -201,13 +206,12 @@ public class MitCatalogScraper {
         }
 
         // 2. Fetch extra book links from course urls.
-        List<String> links = getBookLinksFromCourseUrls(false);
+        List<String> links = getBookLinksFromCourseUrls();
         int replaced = 0;
         for (String link : links) {
             if (replaceLinkIfJoint(link)) {
                 replaced++;
             }
-
         }
         System.out.println("Replaced " + replaced + " book links.");
         DataUtils.writeMapToFile(bookLinks, BOOK_LINKS_FILE);
@@ -236,7 +240,7 @@ public class MitCatalogScraper {
         return false;
     }
 
-    private List<String> getBookLinksFromCourseUrls(boolean refresh) {
+    private List<String> getBookLinksFromCourseUrls() {
         // Extract book links from the course urls
         List<String> bookLinks = new ArrayList<String>();
         for (String courseUrl : courseUrls) {
@@ -262,20 +266,22 @@ public class MitCatalogScraper {
      */
     private void fetchBookInfo() {
         materials.clear();
-        for (Entry<String, String> entry : bookLinks.entrySet()) {
-            String link = entry.getValue();
-            String classCode = entry.getKey();
+        List<String> keys = new ArrayList<String>(bookLinks.keySet());
+        Collections.sort(keys);
+        for (String key : keys) {
+            String link = bookLinks.get(key);
+            String classCode = key;
             System.out.println(link);
             DataUtils.sleep();
             String html = mainTab.go(link).getPageSource();
             if (html.contains(NO_BOOK_INFO)) {
                 // No book info, skip.
-                System.out.println("No book info");
+                System.out.println("No book info for " + classCode);
                 continue;
             } else if (html.contains(NO_BOOKS_NEEDED)) {
                 materials.add(new Material(classCode, null, null, null, null, null, null, null,
                         null, link));
-                System.out.println("No books needed!!");
+                System.out.println("No books needed!! for " + classCode);
                 continue;
             }
             try {
@@ -356,7 +362,7 @@ public class MitCatalogScraper {
                         Matcher m = urlRegex.matcher(href);
                         if (m.find()) {
                             String link = m.group(1);
-                            System.out.println(link);
+//                            System.out.println(link);
                             links.add(link);
                         } else {
                             unmatched.add(href);
