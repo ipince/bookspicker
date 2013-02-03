@@ -39,10 +39,11 @@ public class EbayQuery implements BookstoreQuery {
 		parameters = new TreeMap<String, String>();
 		parameters.put("responseencoding", "XML");
 		
-		//TODO: I've commented these out because I am building the URL to buy the offer using the URL Prefix I got out of the EBay link generator
+		//TODO: these might be unnecessary = I am building the URL to buy the offer using the URL Prefix I got out of the EBay link generator
 		//Normally, adding these parameters should have returned a rover affiliate link, but its just returning the link without the affiliate campaign 
-//		parameters.put("trackingid", campignId);
-//		parameters.put("trackingpartnercode", "9");
+		parameters.put("trackingid", campignId);
+		parameters.put("trackingpartnercode", "9");
+		
 		parameters.put("version", version);
 		parameters.put("appid",appId);
 		parameters.put("productID.type", "ISBN");
