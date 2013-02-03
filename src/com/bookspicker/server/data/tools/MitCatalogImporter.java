@@ -89,7 +89,7 @@ public class MitCatalogImporter {
         }
 
         // First make sure all books are available in DB and get Book-Material pairs.
-        //        List<BookMat> bookmats = getBookMats(materials);
+        List<BookMat> bookmats = getBookMats(materials);
 
         ClassManager cm = ClassManager.getManager();
         BookManager bm = BookManager.getManager();
