@@ -60,6 +60,7 @@ public class ClassBook implements Item, IsSerializable {
         setNecessity(necessity);
         setSource(source);
         setNotes(notes);
+        setUrl(url);
         setHasBook(hasBook);
     }
 
