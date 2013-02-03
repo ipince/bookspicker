@@ -30,6 +30,7 @@ public class EbayQuery implements BookstoreQuery {
 	String certId = "a9d03922-7c2e-455f-b87c-8962554c6bf8";
 	String campignId = "5336359841";
 	String endpoint = "http://open.api.ebay.com/shopping?callname=FindHalfProducts&";// URL to call
+	String affiliateURLPrefix = "http://rover.ebay.com/rover/1/8971-56017-19255-0/1?ff3=8&pub=5574845260&toolid=10001&campid=5336359841&customid=&mpre=";
 	String version = "625";  // API version supported by your application
 	String globalid = "EBAY-US";  // Global ID of the eBay site you want to search (e.g., EBAY-DE)
 	private SortedMap<String, String> parameters;
@@ -37,14 +38,17 @@ public class EbayQuery implements BookstoreQuery {
 	public EbayQuery() {
 		parameters = new TreeMap<String, String>();
 		parameters.put("responseencoding", "XML");
+		
+		//TODO: I've commented these out because I am building the URL to buy the offer using the URL Prefix I got out of the EBay link generator
+		//Normally, adding these parameters should have returned a rover affiliate link, but its just returning the link without the affiliate campaign 
+//		parameters.put("trackingid", campignId);
+//		parameters.put("trackingpartnercode", "9");
 		parameters.put("version", version);
 		parameters.put("appid",appId);
 		parameters.put("productID.type", "ISBN");
 		parameters.put("MaxEntries", "20");
 		parameters.put("includeSelector","Items");
 		parameters.put("AvailableItemsOnly","1");
-		parameters.put("trackingid", campignId);
-		parameters.put("trackingpartnercode", "9");
 	}
 
 	/* (non-Javadoc)
@@ -107,9 +111,10 @@ public class EbayQuery implements BookstoreQuery {
 					int price = (int) Math.round(priceDbl * 100);
 					String sellerName = xmlParsingTools.getTextValue(item, "StoreName");
 					String url = xmlParsingTools.getTextValue(item, "ViewItemURLForNaturalSearch");
+					String affiliateURL = affiliateURLPrefix + url;
 					lastOfferCondition = condition;
 					bundle.addOffer(book, new OnlineOffer(price, shipping, StoreName.HALF, sellerName, condition, 
-							url));            
+							affiliateURL));            
 				}
 			}
 		}
