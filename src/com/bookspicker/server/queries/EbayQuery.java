@@ -30,7 +30,7 @@ public class EbayQuery implements BookstoreQuery {
 	String certId = "a9d03922-7c2e-455f-b87c-8962554c6bf8";
 	String campignId = "5336359841";
 	String endpoint = "http://open.api.ebay.com/shopping?callname=FindHalfProducts&";// URL to call
-	String affiliateURLPrefix = "http://rover.ebay.com/rover/1/8971-56017-19255-0/1?ff3=8&pub=5574845260&toolid=10001&campid=5336359841&customid=&mpre=";
+	String affiliateURLPrefix = "http://rover.ebay.com/rover/1/8971-56017-19255-0/1?ff3=8&pub=5574845260&toolid=10001&campid=5336359841&customid=&item=";
 	String version = "625";  // API version supported by your application
 	String globalid = "EBAY-US";  // Global ID of the eBay site you want to search (e.g., EBAY-DE)
 	private SortedMap<String, String> parameters;
@@ -112,7 +112,8 @@ public class EbayQuery implements BookstoreQuery {
 					int price = (int) Math.round(priceDbl * 100);
 					String sellerName = xmlParsingTools.getTextValue(item, "StoreName");
 					String url = xmlParsingTools.getTextValue(item, "ViewItemURLForNaturalSearch");
-					String affiliateURL = affiliateURLPrefix + url;
+					String affiliateURL = affiliateURLPrefix + book.getIsbn() + "&mpre=" + url;
+					System.out.println("WWWWWWOWOWOWOWOWOOWOWWWWWWWW"+ affiliateURL);
 					lastOfferCondition = condition;
 					bundle.addOffer(book, new OnlineOffer(price, shipping, StoreName.HALF, sellerName, condition, 
 							affiliateURL));            
