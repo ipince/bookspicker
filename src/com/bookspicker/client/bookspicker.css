@@ -31,17 +31,13 @@ body,html {
 	font-size: 13px;
 	color: inherit;
 	background: none;
-	cursor: pointer;
 	padding: 7px;
-	display: inline-block;
 	letter-spacing: 1px;
 	outline: none;
-	position: relative;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
 	text-decoration: none;
-	margin-bottom:5px;
 	font-weight: 700;
 	border: 1px solid #dbb931;
 	
@@ -55,16 +51,11 @@ body,html {
 	border-radius: 5px;
 }
 
-.bpYellowButton:hover {
-	color: #000;
-	box-shadow: 0 5px #dbb931;
-	top: -1px;
-}
 
 .bpYellowButton:active{
 	color: #000;
 	box-shadow: 0 0 #dbb931;
-	top: 4px;
+	margin-top: 4px;
 }
 
 .bpYellowButton:visited{
@@ -693,7 +684,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 
 .pickButton {
-	padding-right: 20px;
+	width: 110px;
 }
 
 .resultsView>table {
@@ -733,7 +724,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 
 .searchButton {
 	margin-left: 5px;
-	margin-top: -5px;
+	margin-top: -12px;
 }
 
 .suggestionBox {
