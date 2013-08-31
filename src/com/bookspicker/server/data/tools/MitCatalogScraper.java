@@ -29,7 +29,7 @@ import com.zenkey.net.prowser.Tab;
 
 public class MitCatalogScraper {
 
-    private static final String CATALOG_TERM_STR = "2013SP";
+    private static final String CATALOG_TERM_STR = "2014FA";
     private static final String CATALOG_BASE = "http://student.mit.edu/catalog/";
     private static final String CATALOG_SEARCH_URL = CATALOG_BASE + "search.cgi?search=&style=verbatim&when=C&days_offered=*&start_time=*&duration=*&total_units=*";
     private static final String BOOK_URL_BASE = "http://sisapp.mit.edu/textbook/books.html?Term="

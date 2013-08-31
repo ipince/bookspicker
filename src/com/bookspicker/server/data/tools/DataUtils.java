@@ -55,7 +55,7 @@ public class DataUtils {
      * to add the data of the fetch/scrape here, so that you know
      * which data is old and which is new.
      */
-    public static final String FILE_DATE_PREFIX = "2013-02-01";
+    public static final String FILE_DATE_PREFIX = "2013-08-31";
 
     public static final String SEP = "|";
     public static final String PARTS_SEP = ">";
