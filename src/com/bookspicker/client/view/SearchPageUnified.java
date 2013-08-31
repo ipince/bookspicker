@@ -224,7 +224,7 @@ public class SearchPageUnified extends Composite implements HasHeader {
             Offer clickedOffer = button.getOffer();
             List<Offer> competingOffers = bookOffers.get(book);
 
-            Analytics.trackBuyAction(clickedOffer, book);
+            Analytics.trackBuyAction(clickedOffer, book, button.isButtonTitleShop());
             // Save stat
             statService.logBuyClick(book.getIsbn(),
                     clickedOffer, competingOffers,

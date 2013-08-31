@@ -16,10 +16,59 @@ body,html {
 	display: inline-block;
 }
 
-.bpButton > * {
+.bpYellowButton {
 	cursor: pointer !important;
 	vertical-align: middle;
 	display: inline-block;
+}
+
+.bpYellowButton {
+	cursor: pointer !important;
+	vertical-align: middle;
+	display: inline-block;
+	border: none;
+	font-family: inherit;
+	font-size: 13px;
+	color: inherit;
+	background: none;
+	cursor: pointer;
+	padding: 7px;
+	display: inline-block;
+	letter-spacing: 1px;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	text-decoration: none;
+	margin-bottom:5px;
+	font-weight: 700;
+	border: 1px solid #dbb931;
+	
+	background: #ffed73;
+	color: #000;
+	box-shadow: 0 4px #dbb931;
+	-webkit-transition: none;
+	-moz-transition: none;
+	transition: none;
+	
+	border-radius: 5px;
+}
+
+.bpYellowButton:hover {
+	color: #000;
+	box-shadow: 0 5px #dbb931;
+	top: -1px;
+}
+
+.bpYellowButton:active{
+	color: #000;
+	box-shadow: 0 0 #dbb931;
+	top: 4px;
+}
+
+.bpYellowButton:visited{
+	color: #ffcc00;
 }
 
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
@@ -606,22 +655,9 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 
 .collapseToggleButton {
-	background-color: #FFED73;
 	margin: auto;
 	margin-bottom: 20px;
-	border: 1px solid rgba(0, 0, 0, 0.2);
-	border-radius: 5px;
-	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 -3px 0 rgba(0, 0, 0, 0.3) inset, 0 0 10px rgba(255, 255, 255, 0.3) inset, 0 2px 4px rgba(0, 0, 0, 0.2);
-	-moz-box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 -3px 0 rgba(0,0,0,0.3) inset, 0 0 10px rgba(255,255,255,0.3) inset, 0 2px 4px rgba(0,0,0,0.2);
-	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 -3px 0 rgba(0, 0, 0, 0.3) inset, 0 0 10px rgba(255, 255, 255, 0.3) inset, 0 2px 4px rgba(0, 0, 0, 0.2);
-	display: block;
-	font-size: 11px;
-	font-weight: bold;
-	text-align: center;
-	text-shadow: 0 -1px rgba(0, 0, 0, 0.2);
 	padding: 11px 0 14px;
-	-moz-transition: background-color 0.2s linear 0;
-	-webkit-transition: background-color 0.2s linear 0;
 	cursor: pointer;
 	width: 175px;
 }

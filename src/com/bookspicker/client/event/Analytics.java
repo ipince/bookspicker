@@ -31,8 +31,8 @@ public class Analytics {
 		Analytics.trackEvent("search", "searchFromBox", query);
 	}
 	
-	public static void trackBuyAction(Offer offer, Book book) {
-		Analytics.trackEvent("buy", "buyOffer", offer.toString() + " ISBN: " + book.getIsbn());
+	public static void trackBuyAction(Offer offer, Book book, int isShop) {
+		Analytics.trackEvent("buy", "buyOffer", offer.toString() + " ISBN: " + book.getIsbn(), isShop);
 	}
 	
 	public static void trackShowOffersButton(Book book) {

@@ -49,6 +49,8 @@ public interface Resources extends ClientBundle {
 		String resultsBookTitle();
 
 		String bpButton();
+		
+		String bpYellowButton();
 
 		// String selected();
 

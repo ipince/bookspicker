@@ -5,11 +5,12 @@ import com.bookspicker.client.view.SearchPage;
 import com.bookspicker.client.view.SearchPageUnified;
 import com.bookspicker.shared.Book;
 import com.google.gwt.dom.client.Style.Cursor;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.Image;
 
 public class PickButton extends FocusPanel{
-	Image normal = new Image(Resources.INSTANCE.checkPricesButton());
+	Anchor normal = new Anchor("Check Prices");
 	Image disabled = new Image(Resources.INSTANCE.pickButtonDisabled());
 	
 	Book pickableBook;
@@ -18,7 +19,7 @@ public class PickButton extends FocusPanel{
 	public PickButton() {
 		super();
 		this.setStylePrimaryName(Resources.INSTANCE.style().pickButton());
-		this.addStyleName(Resources.INSTANCE.style().bpButton());
+		normal.addStyleName(Resources.INSTANCE.style().bpYellowButton());
 		
 		pickableBook = null;
 		
@@ -30,7 +31,7 @@ public class PickButton extends FocusPanel{
 	public PickButton(Book book) {
 		super();
 		this.setStylePrimaryName(Resources.INSTANCE.style().pickButton());
-		this.addStyleName(Resources.INSTANCE.style().bpButton());
+		normal.addStyleName(Resources.INSTANCE.style().bpYellowButton());
 		pickableBook = book;
 		this.setWidget(normal);
 		setTitle("Add to bundle");

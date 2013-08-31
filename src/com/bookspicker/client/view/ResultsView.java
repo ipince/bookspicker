@@ -19,6 +19,7 @@ import com.google.gwt.event.logical.shared.SelectionEvent;
 import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.HTML;
@@ -110,9 +111,10 @@ public class ResultsView extends BPPanel {
 		}
 		searchBox.setStylePrimaryName(STYLE.searchBox());
 		
-		Image searchButton = new Image(Resources.INSTANCE.searchButton());
-		searchButton.setStylePrimaryName(STYLE.bpButton());
+		Anchor searchButton = new Anchor("Search");
+		searchButton.setStylePrimaryName(STYLE.bpYellowButton());
 		searchButton.addStyleName(STYLE.searchButton());
+		searchButton.addStyleDependentName(STYLE.bpYellowButton());
 		searchButton.addClickHandler(searchHandler);
 		searchBox.setWidget(0, 1, searchButton);
 		

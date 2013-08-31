@@ -6,6 +6,8 @@ import com.bookspicker.client.view.SearchPageUnified;
 import com.bookspicker.shared.Book;
 import com.bookspicker.shared.Offer;
 import com.google.gwt.dom.client.Style.Cursor;
+import com.google.gwt.user.client.Random;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.Image;
 
@@ -13,16 +15,20 @@ public class BuyOfferButton extends FocusPanel{
 	private Offer offer;
 	private Book book;
 	boolean enabled;
+	static String SHOP_TITLE = "Shop";
+	static String BUY_TITLE = "Buy";
+	static String buttonTitle = Random.nextDouble() < 0.5 ? SHOP_TITLE : BUY_TITLE;
 	Image disabledImage = new Image(Resources.INSTANCE.buyOfferButtonDisabled());
 	Image enabledImage = new Image(Resources.INSTANCE.buyOfferButton());
 	
 	public BuyOfferButton(Book book, Offer _offer, boolean isUnified) {
 		super();		
-		this.addStyleName(Resources.INSTANCE.style().bpButton());
 		this.book = book;
 		offer = _offer;
 		enabled = true;
-		this.setWidget(new Image(Resources.INSTANCE.buyOfferButton()));
+		Anchor buyButtonAchor = new Anchor(BuyOfferButton.buttonTitle);
+		buyButtonAchor.addStyleName(Resources.INSTANCE.style().bpYellowButton());
+		this.setWidget(buyButtonAchor);// Image(Resources.INSTANCE.buyOfferButton()));
 		this.addClickHandler(SearchPageUnified.buyHandler);
 	}
 	
@@ -54,6 +60,10 @@ public class BuyOfferButton extends FocusPanel{
 			this.setWidget(disabledImage);
 			enabled = false;
 		}
+	}
+	
+	public int isButtonTitleShop(){
+		return BuyOfferButton.buttonTitle.equals(SHOP_TITLE) ? 1 : 0;
 	}
 	
 	public boolean isEnabled(){

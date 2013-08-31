@@ -74,7 +74,8 @@ public class ModernOfferTablePanel extends FlowPanel {
 		if (list.size() > 1) {
 			expandCollapseLabel = new Label(EXPAND_TEXT);
 			buttonWrapper = new FocusPanel(expandCollapseLabel);
-			buttonWrapper.setStylePrimaryName(style.collapseToggleButton());
+			expandCollapseLabel.addStyleName(style.bpYellowButton());
+			buttonWrapper.addStyleName(style.collapseToggleButton());
 			buttonWrapper.addClickHandler(new ClickHandler(){
 	
 				@Override
