@@ -12,6 +12,7 @@ import com.bookspicker.shared.NumberUtil;
 import com.bookspicker.shared.Offer;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.FocusPanel;
@@ -19,6 +20,7 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasVerticalAlignment;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.FlexTable.FlexCellFormatter;
@@ -40,7 +42,7 @@ public class ModernOfferTablePanel extends FlowPanel {
 	Style style = Resources.INSTANCE.style();
 	private final String EXPAND_TEXT = "Show More Offers";
 	private final String COLLAPSE_TEXT = "Show Fewer Offers";
-	Label expandCollapseLabel;
+	InlineLabel expandCollapseLabel;
 	
 	private Book book;
 	
@@ -72,7 +74,7 @@ public class ModernOfferTablePanel extends FlowPanel {
 		add(collapsedOffersTable);
 		
 		if (list.size() > 1) {
-			expandCollapseLabel = new Label(EXPAND_TEXT);
+			expandCollapseLabel = new InlineLabel(EXPAND_TEXT);
 			buttonWrapper = new FocusPanel(expandCollapseLabel);
 			expandCollapseLabel.addStyleName(style.bpYellowButton());
 			buttonWrapper.addStyleName(style.collapseToggleButton());

@@ -24,6 +24,7 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.SuggestOracle.Suggestion;
 
@@ -111,7 +112,7 @@ public class ResultsView extends BPPanel {
 		}
 		searchBox.setStylePrimaryName(STYLE.searchBox());
 		
-		Anchor searchButton = new Anchor("Search");
+		InlineLabel searchButton = new InlineLabel("Search");
 		searchButton.setStylePrimaryName(STYLE.bpYellowButton());
 		searchButton.addStyleName(STYLE.searchButton());
 		searchButton.addStyleDependentName(STYLE.bpYellowButton());

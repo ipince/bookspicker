@@ -10,52 +10,48 @@ body,html {
 		!important;
 }
 
+:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
 .bpButton {
 	cursor: pointer !important;
 	vertical-align: middle;
 	display: inline-block;
+	outline: none;
 }
 
 .bpYellowButton {
 	cursor: pointer !important;
 	vertical-align: middle;
-	display: inline-block;
-}
-
-.bpYellowButton {
-	cursor: pointer !important;
-	vertical-align: middle;
-	display: inline-block;
+	display: inline-table;
 	border: none;
 	font-family: inherit;
 	font-size: 13px;
 	color: inherit;
 	background: none;
-	padding: 7px;
+	padding: 5px;
 	letter-spacing: 1px;
 	outline: none;
-	-webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	transition: all 0.3s;
 	text-decoration: none;
 	font-weight: 700;
 	border: 1px solid #dbb931;
 	
 	background: #ffed73;
 	color: #000;
-	box-shadow: 0 4px #dbb931;
-	-webkit-transition: none;
-	-moz-transition: none;
-	transition: none;
 	
 	border-radius: 5px;
 }
 
+.bpYellowButton:hover {
+	color: #000;
+	box-shadow: 0 0 5px #dbb931;
+}
 
 .bpYellowButton:active{
 	color: #000;
-	box-shadow: 0 0 #dbb931;
-	margin-top: 4px;
+	box-shadow: inset 0 0 5px #dbb931;
 }
 
 .bpYellowButton:visited{
@@ -724,7 +720,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 
 .searchButton {
 	margin-left: 5px;
-	margin-top: -12px;
+	margin-top: -5px;
 }
 
 .suggestionBox {

@@ -8,9 +8,11 @@ import com.google.gwt.dom.client.Style.Cursor;
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.InlineLabel;
+import com.google.gwt.user.client.ui.Label;
 
 public class PickButton extends FocusPanel{
-	Anchor normal = new Anchor("Check Prices");
+	InlineLabel normal = new InlineLabel("Check Prices");
 	Image disabled = new Image(Resources.INSTANCE.pickButtonDisabled());
 	
 	Book pickableBook;
