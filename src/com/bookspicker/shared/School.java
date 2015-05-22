@@ -11,9 +11,15 @@ public enum School implements Serializable {
     UCHICAGO("uchicago"),
     DARTMOUTH("dartmouth"),
     NORTHWESTERN("northwestern");
+	
+	private static final long serialVersionUID = 1L;
 
     private final String shortname;
 //    private final String amazonAffiliateId;
+    
+    private School() {
+    	this("mit");
+    }
     
     private School(String shortname) {
         this.shortname = shortname;

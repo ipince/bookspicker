@@ -29,7 +29,7 @@ import com.zenkey.net.prowser.Tab;
 
 public class MitCatalogScraper {
 
-    private static final String CATALOG_TERM_STR = "2014FA";
+    private static final String CATALOG_TERM_STR = "2015FA";
     private static final String CATALOG_BASE = "http://student.mit.edu/catalog/";
     private static final String CATALOG_SEARCH_URL = CATALOG_BASE + "search.cgi?search=&style=verbatim&when=C&days_offered=*&start_time=*&duration=*&total_units=*";
     private static final String BOOK_URL_BASE = "http://sisapp.mit.edu/textbook/books.html?Term="
@@ -198,6 +198,15 @@ public class MitCatalogScraper {
      * sisapp.mit.edu/textbook/books.html?Term=2013FA&Subject=11.482
      * 
      * Note: URLs are Case Sensitive!!
+     * 
+     * ---
+     * 
+     * NOTE: as of 2/1/2014, looks like MIT decided to use the same "canonical"
+     * url for all classes (including joint ones). So for example, 6.045/18.400
+     * will have two different URLs, both of which have the same information:
+     * 
+     * http://sisapp.mit.edu/textbook/books.html?Term=2014SP&Subject=6.045
+     * http://sisapp.mit.edu/textbook/books.html?Term=2014SP&Subject=18.400
      */
     private void updateBookLinks() {
         // 1. Generate generic bookUrls for each class.

@@ -9,9 +9,10 @@ public enum Term implements IsSerializable {
     SPRING2011("SP11"), FALL2011("FA11"),
     SPRING2012("SP12"), FALL2012("FA12"),
     SPRING2013("SP13"), FALL2013("FA13"),
-    SPRING2014("SP14"), FALL2014("FA14");
+    SPRING2014("SP14"), FALL2014("FA14"),
+    SPRING2015("SP15"), FALL2015("FA15");
 
-    public static final Term CURRENT_TERM = FALL2013;
+    public static final Term CURRENT_TERM = FALL2014;
 
     private String term;
 
