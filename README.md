@@ -27,3 +27,9 @@ Maven so everything can be built from the command line, but for now, Eclipse rem
     solution? Yes. But it's the easiest workaround I've found so far (if you want, search on google
     for a solution... they all suck :-/  ).
 5. You're done.
+
+To restart the tomcat server on rackspace:
+$ ssh -p 226 <username>@bookspicker.com
+$ cd /usr/local/tomcat
+$ sudo ./bin/startup.sh
+ 
