@@ -29,7 +29,10 @@ Maven so everything can be built from the command line, but for now, Eclipse rem
 5. You're done.
 
 To restart the tomcat server on rackspace:
-$ ssh -p 226 <username>@bookspicker.com
-$ cd /usr/local/tomcat
-$ sudo ./bin/startup.sh
+
+```$ ssh -p 226 <username>@bookspicker.com```
+
+```$ cd /usr/local/tomcat```
+
+```$ sudo ./bin/startup.sh```
  
